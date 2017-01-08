@@ -1,5 +1,5 @@
-#ifndef COMMAND_BASE_H
-#define COMMAND_BASE_H
+#ifndef CommandBase_H
+#define CommandBase_H
 
 #include <memory>
 #include <string>
@@ -7,22 +7,22 @@
 #include <Commands/Command.h>
 
 #include "OI.h"
-#include "Subsystems/ExampleSubsystem.h"
+#include "Subsystems/ClimbingSystem.h"
+#include "Subsystems/DriveBase.h"
+#include "Subsystems/GearManipulator.h"
+#include "Subsystems/ShootingSystem.h"
 
-/**
- * The base for all commands. All atomic commands should subclass CommandBase.
- * CommandBase stores creates and stores each control system. To access a
- * subsystem elsewhere in your code in your code use
- * CommandBase::exampleSubsystem
- */
 class CommandBase: public frc::Command {
 public:
 	CommandBase(const std::string& name);
 	CommandBase() = default;
 
-	// Create a single static instance of all of your subsystems
-	static std::unique_ptr<ExampleSubsystem> exampleSubsystem;
-	static std::unique_ptr<OI> oi;
+	// Creates a single static instance of all the robot's subsystems
+	static std::unique_ptr<OI> oi; //Operator Interface instance
+	static std::unique_ptr<ClimbingSystem> climbingsystem; //Climbing System instance
+	static std::unique_ptr<DriveBase> drivebase; //Drive Base instance
+	static std::unique_ptr<GearManipulator> gearmanipulator; //Gear Manipulator instance
+	static std::unique_ptr<ShootingSystem> shootingsystem; //Shooting System instance
 };
 
-#endif  // COMMAND_BASE_H
+#endif  // CommandBase_H

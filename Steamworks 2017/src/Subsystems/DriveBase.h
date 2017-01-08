@@ -1,11 +1,11 @@
-#ifndef EXAMPLE_SUBSYSTEM_H
-#define EXAMPLE_SUBSYSTEM_H
+#ifndef DriveBase_H
+#define DriveBase_H
 
 #include <Commands/Subsystem.h>
 
-class ExampleSubsystem: public frc::Subsystem {
+class DriveBase: public frc::Subsystem {
 public:
-	ExampleSubsystem();
+	DriveBase();
 	void InitDefaultCommand() override;
 
 private:

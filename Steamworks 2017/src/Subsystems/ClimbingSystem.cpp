@@ -1,13 +1,13 @@
-#include "ExampleSubsystem.h"
+#include "ClimbingSystem.h"
 
 #include "../RobotMap.h"
 
-ExampleSubsystem::ExampleSubsystem() :
-		frc::Subsystem("ExampleSubsystem") {
+ClimbingSystem::ClimbingSystem() :
+		frc::Subsystem("ClimbingSystem") {
 
 }
 
-void ExampleSubsystem::InitDefaultCommand() {
+void ClimbingSystem::InitDefaultCommand() {
 	// Set the default command for a subsystem here.
 	// SetDefaultCommand(new MySpecialCommand());
 }
