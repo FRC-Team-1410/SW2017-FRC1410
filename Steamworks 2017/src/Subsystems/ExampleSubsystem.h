@@ -1,11 +1,11 @@
-#ifndef GearManipulator_H
-#define GearManipulator_H
+#ifndef EXAMPLE_SUBSYSTEM_H
+#define EXAMPLE_SUBSYSTEM_H
 
 #include <Commands/Subsystem.h>
 
-class GearManipulator: public frc::Subsystem {
+class ExampleSubsystem: public frc::Subsystem {
 public:
-	GearManipulator();
+	ExampleSubsystem();
 	void InitDefaultCommand() override;
 
 private:

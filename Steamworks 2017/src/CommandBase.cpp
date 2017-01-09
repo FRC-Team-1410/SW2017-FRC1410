@@ -2,19 +2,16 @@
 
 #include <Commands/Scheduler.h>
 
-#include "OI.h"
-#include "Subsystems/ClimbingSystem.h"
-#include "Subsystems/DriveBase.h"
-#include "Subsystems/GearManipulator.h"
-#include "Subsystems/ShootingSystem.h"
+#include "Subsystems/ExampleSubsystem.h"
 
-//Initialize the single instances of each subsystem below
+// Initialize a single static instance of all of your subsystems. The following
+// line should be repeated for each subsystem in the project.
+std::unique_ptr<ExampleSubsystem> CommandBase::exampleSubsystem =
+		std::make_unique<ExampleSubsystem>();
+
 std::unique_ptr<OI> CommandBase::oi = std::make_unique<OI>();
-std::unique_ptr<ClimbingSystem> CommandBase::climbingsystem = std::make_unique<ClimbingSystem>();
-std::unique_ptr<DriveBase> CommandBase::drivebase = std::make_unique<DriveBase>();
-std::unique_ptr<GearManipulator> CommandBase::gearmanipulator = std::make_unique<GearManipulator>();
-std::unique_ptr<ShootingSystem> CommandBase::shootingsystem = std::make_unique<ShootingSystem>();
 
-CommandBase::CommandBase(const std::string &name) : frc::Command(name) {
+CommandBase::CommandBase(const std::string &name) :
+		frc::Command(name) {
 
 }
