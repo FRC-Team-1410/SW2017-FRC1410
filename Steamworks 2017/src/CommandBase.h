@@ -1,5 +1,5 @@
-#ifndef COMMAND_BASE_H
-#define COMMAND_BASE_H
+#ifndef CommandBase_H
+#define CommandBase_H
 
 #include <memory>
 #include <string>
@@ -7,7 +7,7 @@
 #include <Commands/Command.h>
 
 #include "OI.h"
-#include "Subsystems/ExampleSubsystem.h"
+#include "Subsystems/DriveBase.h"
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -21,8 +21,8 @@ public:
 	CommandBase() = default;
 
 	// Create a single static instance of all of your subsystems
-	static std::unique_ptr<ExampleSubsystem> exampleSubsystem;
 	static std::unique_ptr<OI> oi;
+	static std::unique_ptr<DriveBase> drivebase;
 };
 
-#endif  // COMMAND_BASE_H
+#endif  // CommandBase_H
