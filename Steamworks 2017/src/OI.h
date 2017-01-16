@@ -11,6 +11,8 @@ public:
 private:
 	frc::XboxController * driver_controller;
 	frc::XboxController * operator_controller;
+
+	frc::JoystickButton * gear_solenoid_button;
 };
 
 #endif  // OI_H

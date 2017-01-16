@@ -10,6 +10,8 @@ public:
 	DriveBase();
 	void InitDefaultCommand() override;
 	void DriveMecanum(double x_magnitude, double y_magnitude, double rotation_magnitude);
+	float ReturnEncoderDistance();
+	void ResetEncoders();
 
 private:
 	CANTalon * front_left_motor; //CANTalon 1

@@ -1,4 +1,4 @@
-#include "TeleOpDriveBaseDriveMecanum.h"
+#include <Commands/TeleOp/TeleOpDriveBase/TeleOpDriveBaseDriveMecanum.h>
 #include "../../../CommandBase.h"
 
 TeleOpDriveBaseDriveMecanum::TeleOpDriveBaseDriveMecanum() {
