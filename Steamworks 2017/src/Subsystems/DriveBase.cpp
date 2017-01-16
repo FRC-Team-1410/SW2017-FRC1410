@@ -17,7 +17,7 @@ DriveBase::DriveBase() : frc::Subsystem("DriveBase") {
 
 	full_drive = new frc::RobotDrive(front_left_motor, back_left_motor, front_right_motor, back_right_motor);
 
-	mini_drive = new frc::RobotDrive(front_left_mini, back_left_mini, front_right_mini, back_left_mini);
+	mini_drive = new frc::RobotDrive(front_left_mini, back_left_mini, front_right_mini, back_right_mini);
 
 	//full_drive->SetInvertedMotor(full_drive->kFrontLeftMotor, true);
 	//full_drive->SetInvertedMotor(full_drive->kFrontRightMotor, true);
