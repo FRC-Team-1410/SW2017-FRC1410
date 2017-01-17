@@ -24,7 +24,7 @@ void Robot::RobotInit() {
  */
 void Robot::DisabledInit() {
 
-	}
+}
 
 void Robot::DisabledPeriodic() {
 	frc::Scheduler::GetInstance()->Run();

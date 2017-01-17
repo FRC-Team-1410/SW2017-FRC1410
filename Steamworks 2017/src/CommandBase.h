@@ -9,6 +9,7 @@
 #include "OI.h"
 #include "Subsystems/DriveBase.h"
 #include "Subsystems/GearManipulator.h"
+#include "Robot.h"
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.

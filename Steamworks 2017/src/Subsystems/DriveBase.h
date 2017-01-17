@@ -14,6 +14,8 @@ public:
 	void ResetEncoders();
 
 private:
+	bool initialized;
+
 	CANTalon * front_left_motor; //CANTalon 1
 	CANTalon * front_right_motor; //CANTalon 2
 	CANTalon * back_left_motor; //CANTalon 3
@@ -26,6 +28,8 @@ private:
 
 	frc::RobotDrive * full_drive;
 	frc::RobotDrive * mini_drive;
+
+	void InitializeHardware();
 };
 
 #endif  // DriveBase_H

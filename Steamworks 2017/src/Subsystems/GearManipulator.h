@@ -12,8 +12,12 @@ public:
 	void ActuateSolenoids(bool forward);
 
 private:
+	bool initialized;
+
 	frc::DoubleSolenoid * left_solenoid;
 	//frc::DoubleSolenoid * right_solenoid;
+
+	void InitializeHardware();
 };
 
 #endif  // GearManipulator_H
