@@ -12,7 +12,7 @@ void TeleOpDriveBaseDriveMecanum::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void TeleOpDriveBaseDriveMecanum::Execute() {
-	CommandBase::drivebase.get()->DriveMecanum(CommandBase::oi.get()->ReturnDriverAxis(1), CommandBase::oi.get()->ReturnDriverAxis(0), CommandBase::oi.get()->ReturnDriverAxis(4));
+	CommandBase::drivebase.get()->DriveMecanum(CommandBase::oi.get()->ReturnDriverAxis(0), CommandBase::oi.get()->ReturnDriverAxis(1), CommandBase::oi.get()->ReturnDriverAxis(4));
 }
 
 // Make this return true when this Command no longer needs to run execute()

@@ -7,12 +7,13 @@ class OI {
 public:
 	OI();
 	double ReturnDriverAxis(int axis);
+	void InitializeHardware();
 
 private:
 	//frc::XboxController * driver_controller;
 	//frc::XboxController * operator_controller;
-	frc::Joystick * driver_controller;
-	frc::Joystick * operator_controller;
+	frc::XboxController * driver_controller;
+	frc::XboxController * operator_controller;
 
 	frc::JoystickButton * gear_solenoid_button;
 };

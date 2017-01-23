@@ -36,14 +36,23 @@ float InputShape(float userValue){
 OI::OI() {
 	//driver_controller = new frc::XboxController(0);
 	//operator_controller = new frc::XboxController(1);
-	driver_controller = new frc::Joystick(0);
-	operator_controller = new frc::Joystick(1);
+	driver_controller = 0;
+	operator_controller = 0;
 
-	gear_solenoid_button = new frc::JoystickButton(operator_controller, 1);
-
-	//gear_solenoid_button->ToggleWhenPressed(new TeleOpGearManipulatorActuateSolenoids());
+	gear_solenoid_button = 0;
 }
 
 double OI::ReturnDriverAxis(int axis){
 	return InputShape(driver_controller->GetRawAxis(axis));
+}
+
+void OI::InitializeHardware(){
+	if(driver_controller == 0){
+		driver_controller = new frc::XboxController(0);
+		operator_controller = new frc::XboxController(1);
+
+		gear_solenoid_button = new frc::JoystickButton(operator_controller, 1);
+
+		gear_solenoid_button->ToggleWhenPressed(new TeleOpGearManipulatorActuateSolenoids());
+	}
 }

@@ -21,13 +21,13 @@ private:
 	CANTalon * back_left_motor; //CANTalon 3
 	CANTalon * back_right_motor; //CANTalon 4
 
-	CANTalon * front_left_mini; //CANTalon 11
-	CANTalon * front_right_mini; //CANTalon 12
-	CANTalon * back_left_mini; //CANTalon 13
-	CANTalon * back_right_mini; //CANTalon 14
+	//CANTalon * front_left_mini; //CANTalon 11
+	//CANTalon * front_right_mini; //CANTalon 12
+	//CANTalon * back_left_mini; //CANTalon 13
+	//CANTalon * back_right_mini; //CANTalon 14
 
 	frc::RobotDrive * full_drive;
-	frc::RobotDrive * mini_drive;
+	//frc::RobotDrive * mini_drive;
 
 	void InitializeHardware();
 };

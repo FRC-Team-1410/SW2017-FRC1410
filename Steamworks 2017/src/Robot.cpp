@@ -15,6 +15,7 @@ void Robot::RobotInit() {
 	//chooser.AddDefault("Default Auto", new ExampleCommand());
 	// chooser.AddObject("My Auto", new MyAutoCommand());
 	//frc::SmartDashboard::PutData("Auto Modes", &chooser);
+	CommandBase::oi.get()->InitializeHardware();
 }
 
 /**
@@ -23,7 +24,7 @@ void Robot::RobotInit() {
  * the robot is disabled.
  */
 void Robot::DisabledInit() {
-
+	CommandBase::oi.get()->InitializeHardware();
 }
 
 void Robot::DisabledPeriodic() {
@@ -65,6 +66,8 @@ void Robot::TeleopInit() {
 	//if (autonomousCommand != nullptr) {
 		//autonomousCommand->Cancel();
 		//}
+	CommandBase::oi.get()->InitializeHardware();
+
 }
 
 void Robot::TeleopPeriodic() {
