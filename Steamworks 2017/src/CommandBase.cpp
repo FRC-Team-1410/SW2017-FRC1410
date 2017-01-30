@@ -5,10 +5,13 @@
 #include "OI.h"
 #include "Subsystems/DriveBase.h"
 #include "Subsystems/GearManipulator.h"
+#include "Subsystems/Climber.h"
 
 std::unique_ptr<OI> CommandBase::oi = std::make_unique<OI>();
 std::unique_ptr<DriveBase> CommandBase::drivebase = std::make_unique<DriveBase>();
 std::unique_ptr<GearManipulator> CommandBase::gearmanipulator = std::make_unique<GearManipulator>();
+std::unique_ptr<Climber> CommandBase::climber = std::make_unique<Climber>();
+std::unique_ptr<Shooter> CommandBase::shooter = std::make_unique<Shooter>();
 
 CommandBase::CommandBase(const std::string &name) : frc::Command(name) {
 

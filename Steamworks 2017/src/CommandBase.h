@@ -9,14 +9,10 @@
 #include "OI.h"
 #include "Subsystems/DriveBase.h"
 #include "Subsystems/GearManipulator.h"
+#include "Subsystems/Climber.h"
+#include "Subsystems/Shooter.h"
 #include "Robot.h"
 
-/**
- * The base for all commands. All atomic commands should subclass CommandBase.
- * CommandBase stores creates and stores each control system. To access a
- * subsystem elsewhere in your code in your code use
- * CommandBase::exampleSubsystem
- */
 class CommandBase: public frc::Command {
 public:
 	CommandBase(const std::string& name);
@@ -26,6 +22,8 @@ public:
 	static std::unique_ptr<OI> oi;
 	static std::unique_ptr<DriveBase> drivebase;
 	static std::unique_ptr<GearManipulator> gearmanipulator;
+	static std::unique_ptr<Climber> climber;
+	static std::unique_ptr<Shooter> shooter;
 };
 
 #endif  // CommandBase_H
