@@ -16,6 +16,7 @@ private:
 	frc::XboxController * operator_controller;
 
 	frc::JoystickButton * gear_solenoid_button;
+	frc::JoystickButton * shooter_spin_button;
 };
 
 #endif  // OI_H

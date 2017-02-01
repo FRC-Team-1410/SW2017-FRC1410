@@ -9,11 +9,14 @@ class Shooter: public frc::Subsystem {
 public:
 	Shooter();
 	void InitDefaultCommand() override;
+	void SpinUpSpinner(float speed);
 
 private:
 	bool initialized;
 
 	void InitializeHardware();
+
+	CANTalon * fly_wheel;
 };
 
 #endif  // Shooter_H

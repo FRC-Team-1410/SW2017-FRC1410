@@ -6,6 +6,7 @@
 
 Shooter::Shooter() : frc::Subsystem("Shooter") {
 	initialized = false;
+	fly_wheel = 0;
 }
 
 void Shooter::InitDefaultCommand() {
@@ -16,4 +17,25 @@ void Shooter::InitDefaultCommand() {
 
 void Shooter::InitializeHardware(){
 	initialized = true;
+
+	fly_wheel = new CANTalon(5);
+	fly_wheel->SetFeedbackDevice(CANTalon::CtreMagEncoder_Relative);
+	fly_wheel->SetControlMode(frc::CANSpeedController::ControlMode::kSpeed);
+	fly_wheel->SetSensorDirection(true);
+	fly_wheel->SetVoltageRampRate(8);
+	fly_wheel->ConfigNominalOutputVoltage(+0.0f, -0.0f);
+	fly_wheel->ConfigPeakOutputVoltage(+0.0f, -12.0f);
+	fly_wheel->SetPID(0,0,0,0.05);
+	SmartDashboard::PutNumber("SUCK A DICK DIPSHITS 4", 8);
+
+}
+
+void Shooter::SpinUpSpinner(float speed){
+	if(!initialized){
+		Shooter::InitializeHardware();
+	}
+	fly_wheel->Set(1700);
+			//fly_wheel->Set(1);
+			SmartDashboard::PutNumber("Shooter Output Voltage (~6.9)", 23456543);
+			SmartDashboard::PutNumber("Shooter Encoder Velocity (~2800)", fly_wheel->GetEncVel());
 }
