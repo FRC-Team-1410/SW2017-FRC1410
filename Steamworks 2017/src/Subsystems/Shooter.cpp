@@ -22,7 +22,7 @@ void Shooter::InitializeHardware(){
 	fly_wheel->SetFeedbackDevice(CANTalon::CtreMagEncoder_Relative);
 	fly_wheel->SetControlMode(frc::CANSpeedController::ControlMode::kSpeed);
 	fly_wheel->SetSensorDirection(true);
-	fly_wheel->SetVoltageRampRate(8);
+	fly_wheel->SetVoltageRampRate(12);
 	fly_wheel->ConfigNominalOutputVoltage(+0.0f, -0.0f);
 	fly_wheel->ConfigPeakOutputVoltage(+0.0f, -12.0f);
 	fly_wheel->SetPID(0,0,0,0.05);
@@ -34,6 +34,7 @@ void Shooter::SpinUpSpinner(float speed){
 	}
 	fly_wheel->Set(speed);
 	//fly_wheel->Set(1);
-	SmartDashboard::PutNumber("Shooter Output Voltage (~6.9)", 23456543);
+	SmartDashboard::PutNumber("Shooter Output Voltage (~6.9)", fly_wheel->GetOutputVoltage());
 	SmartDashboard::PutNumber("Shooter Encoder Velocity (~2800)", fly_wheel->GetEncVel());
+	SmartDashboard::PutNumber("Shooter Talon Velocity (~-1700)", fly_wheel->GetSpeed());
 }

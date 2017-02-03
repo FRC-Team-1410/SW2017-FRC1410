@@ -48,6 +48,10 @@ double OI::ReturnDriverAxis(int axis){
 	return InputShape(driver_controller->GetRawAxis(axis));
 }
 
+double OI::ReturnOperatorAxis(int axis){
+	return InputShape(operator_controller->GetRawAxis(axis));
+}
+
 void OI::InitializeHardware(){
 	if(driver_controller == 0){
 		driver_controller = new frc::XboxController(0);

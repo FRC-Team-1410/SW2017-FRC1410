@@ -7,6 +7,7 @@ class OI {
 public:
 	OI();
 	double ReturnDriverAxis(int axis);
+	double ReturnOperatorAxis(int axis);
 	void InitializeHardware();
 
 private:

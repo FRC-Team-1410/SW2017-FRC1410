@@ -9,9 +9,11 @@ class Climber: public frc::Subsystem {
 public:
 	Climber();
 	void InitDefaultCommand() override;
+	void RotateZeDrum(float speed);
 
 private:
 	bool initialized;
+	CANTalon * climbing_motor;
 
 	void InitializeHardware();
 };
