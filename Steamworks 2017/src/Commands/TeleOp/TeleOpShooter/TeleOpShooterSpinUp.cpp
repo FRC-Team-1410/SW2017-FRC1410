@@ -12,7 +12,7 @@ void TeleOpShooterSpinUp::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void TeleOpShooterSpinUp::Execute() {
-	CommandBase::shooter.get()->SpinUpSpinner(-1800);
+	CommandBase::shooter.get()->SpinUpSpinner(-1650);
 }
 
 // Make this return true when this Command no longer needs to run execute()

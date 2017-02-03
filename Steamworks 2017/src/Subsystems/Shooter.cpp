@@ -6,7 +6,8 @@
 
 Shooter::Shooter() : frc::Subsystem("Shooter") {
 	initialized = false;
-	fly_wheel = 0;
+	motor_one = 0;
+	motor_two = 0;
 }
 
 void Shooter::InitDefaultCommand() {
@@ -18,23 +19,55 @@ void Shooter::InitDefaultCommand() {
 void Shooter::InitializeHardware(){
 	initialized = true;
 
-	fly_wheel = new CANTalon(5);
-	fly_wheel->SetFeedbackDevice(CANTalon::CtreMagEncoder_Relative);
-	fly_wheel->SetControlMode(frc::CANSpeedController::ControlMode::kSpeed);
-	fly_wheel->SetSensorDirection(true);
-	fly_wheel->SetVoltageRampRate(12);
-	fly_wheel->ConfigNominalOutputVoltage(+0.0f, -0.0f);
-	fly_wheel->ConfigPeakOutputVoltage(+0.0f, -12.0f);
-	fly_wheel->SetPID(0,0,0,0.05);
+	motor_one = new CANTalon(5);
+	motor_two = new CANTalon(7);
+
+	motor_one->SetFeedbackDevice(CANTalon::CtreMagEncoder_Relative);
+	motor_two->SetFeedbackDevice(CANTalon::CtreMagEncoder_Relative);
+
+	motor_one->SetControlMode(frc::CANSpeedController::ControlMode::kSpeed);
+	motor_two->SetControlMode(frc::CANSpeedController::ControlMode::kFollower);
+
+	motor_one->SetSensorDirection(true);
+	motor_two->SetSensorDirection(true);
+
+	motor_one->SetVoltageRampRate(12);
+	motor_one->SetVoltageRampRate(12);
+
+	motor_one->ConfigNominalOutputVoltage(+0.0f, -0.0f);
+	motor_two->ConfigNominalOutputVoltage(+0.0f, -0.0f);
+
+	motor_one->ConfigPeakOutputVoltage(+0.0f, -12.0f);
+	motor_two->ConfigPeakOutputVoltage(+0.0f, -12.0f);
+
+	motor_one->SetPID(0, 0, 0, 0.05);
+	motor_two->SetPID(0, 0, 0, 0.05);
 }
 
 void Shooter::SpinUpSpinner(float speed){
 	if(!initialized){
 		Shooter::InitializeHardware();
 	}
-	fly_wheel->Set(speed);
-	//fly_wheel->Set(1);
-	SmartDashboard::PutNumber("Shooter Output Voltage (~6.9)", fly_wheel->GetOutputVoltage());
-	SmartDashboard::PutNumber("Shooter Encoder Velocity (~2800)", fly_wheel->GetEncVel());
-	SmartDashboard::PutNumber("Shooter Talon Velocity (~-1700)", fly_wheel->GetSpeed());
+	motor_one->Set(speed);
+	motor_two->Set(7);
+
+	SmartDashboard::PutNumber("Shooter Motor 1 Output Voltage (~6.9)", motor_one->GetOutputVoltage());
+	SmartDashboard::PutNumber("Shooter Motor 2 Output VOltage (~6.9)", motor_two->GetOutputVoltage());
+
+	SmartDashboard::PutNumber("Shooter Motor 1 Encoder Velocity (~20000)", motor_one->GetEncVel());
+	SmartDashboard::PutNumber("Shooter Motor 2 Encoder Velocity (~0)", motor_two->GetEncVel());
+
+	SmartDashboard::PutNumber("Shooter Motor 1 Talon Velocity (~-1650)", motor_one->GetSpeed());
+	SmartDashboard::PutNumber("Shooter Motor 2 Talon Velocity (~0)", motor_two->GetSpeed());
+
+	std::string is_a_go = 0;
+
+	if(motor_one->GetEncVel() >= 19000){
+		is_a_go = "A GO";
+	}
+	else if(motor_one->GetEncVel() <= 19000){
+		is_a_go = "NOT A GO";
+	}
+
+	SmartDashboard::PutString("SHOOTER IS ", is_a_go);
 }

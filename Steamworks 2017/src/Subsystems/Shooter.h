@@ -16,7 +16,8 @@ private:
 
 	void InitializeHardware();
 
-	CANTalon * fly_wheel;
+	CANTalon * motor_one;
+	CANTalon * motor_two;
 };
 
 #endif  // Shooter_H

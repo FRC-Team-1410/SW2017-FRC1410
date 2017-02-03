@@ -11,6 +11,8 @@
 #include "Subsystems/GearManipulator.h"
 #include "Subsystems/Climber.h"
 #include "Subsystems/Shooter.h"
+#include "Subsystems/Intake.h"
+#include "Subsystems/Hopper.h"
 #include "Robot.h"
 
 class CommandBase: public frc::Command {
@@ -24,6 +26,8 @@ public:
 	static std::unique_ptr<GearManipulator> gearmanipulator;
 	static std::unique_ptr<Climber> climber;
 	static std::unique_ptr<Shooter> shooter;
+	static std::unique_ptr<Intake> intake;
+	static std::unique_ptr<Hopper> hopper;
 };
 
 #endif  // CommandBase_H

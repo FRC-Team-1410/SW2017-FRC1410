@@ -7,7 +7,8 @@
 
 Climber::Climber() : frc::Subsystem("Climber") {
 	initialized = false;
-	climbing_motor = 0;
+	motor_one = 0;
+	motor_two = 0;
 }
 
 void Climber::InitDefaultCommand() {
@@ -19,9 +20,11 @@ void Climber::InitDefaultCommand() {
 
 void Climber::InitializeHardware(){
 	initialized = true;
-	climbing_motor = new CANTalon(6);
+	motor_one = new CANTalon(6);
+	motor_two = new CANTalon(8);
 }
 
 void Climber::RotateZeDrum(float speed){
-	climbing_motor->Set(speed);
+	motor_one->Set(speed);
+	motor_two->Set(speed);
 }
