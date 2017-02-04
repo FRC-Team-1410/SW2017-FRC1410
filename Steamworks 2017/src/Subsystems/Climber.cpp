@@ -7,8 +7,8 @@
 
 Climber::Climber() : frc::Subsystem("Climber") {
 	initialized = false;
-	motor_one = 0;
-	motor_two = 0;
+	climbing_motor_one = 0;
+	climbing_motor_two = 0;
 }
 
 void Climber::InitDefaultCommand() {
@@ -20,11 +20,16 @@ void Climber::InitDefaultCommand() {
 
 void Climber::InitializeHardware(){
 	initialized = true;
-	motor_one = new CANTalon(6);
-	motor_two = new CANTalon(8);
+	climbing_motor_one = new CANTalon(5);
+	climbing_motor_two = new CANTalon(7);
 }
 
 void Climber::RotateZeDrum(float speed){
-	motor_one->Set(speed);
-	motor_two->Set(speed);
+	climbing_motor_one->Set(speed);
+	climbing_motor_two->Set(speed);
+
+	SmartDashboard::PutNumber("CLIMBING VOLTAGE DRAW 1", climbing_motor_one->GetOutputVoltage());
+	SmartDashboard::PutNumber("CLIMBING CURRENT DRAW 1", climbing_motor_one->GetOutputCurrent());
+	SmartDashboard::PutNumber("CLIMBING VOLTAGE DRAW 2", climbing_motor_two->GetOutputVoltage());
+	SmartDashboard::PutNumber("CLIMBING CURRENT DRAW 2", climbing_motor_two->GetOutputCurrent());
 }

@@ -13,8 +13,8 @@ public:
 
 private:
 	bool initialized;
-	CANTalon * motor_one;
-	CANTalon * motor_two;
+	CANTalon * climbing_motor_one;
+	CANTalon * climbing_motor_two;
 
 	void InitializeHardware();
 };
