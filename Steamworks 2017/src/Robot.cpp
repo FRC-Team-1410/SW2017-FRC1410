@@ -54,6 +54,7 @@ void Robot::AutonomousInit() {
 		//if (autonomousCommand.get() != nullptr) {
 		//autonomousCommand->Start();
 	//}
+	CommandBase::autonomous.get()->Drive5Seconds();
 }
 void Robot::AutonomousPeriodic() {
 	frc::Scheduler::GetInstance()->Run();
