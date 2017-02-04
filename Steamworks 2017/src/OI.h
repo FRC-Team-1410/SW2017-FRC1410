@@ -18,6 +18,7 @@ private:
 
 	frc::JoystickButton * gear_solenoid_button;
 	frc::JoystickButton * shooter_spin_button;
+	frc::JoystickButton * intake_obtain_balls;
 };
 
 #endif  // OI_H

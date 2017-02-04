@@ -4,6 +4,7 @@
 
 #include "Commands/TeleOp/TeleOpGearManipulator/TeleOpGearManipulatorActuateSolenoids.h"
 #include "Commands/TeleOp/TeleOpShooter/TeleOpShooterSpinUp.h"
+#include "Commands/TeleOp/TeleOpIntake/TeleOpIntakeObtainBalls.h"
 
 const char inputShape[255] = {
 			0,1,3,4,5,6,7,9,10,11,12,13,15,16,17,18,19,21,22,23,24,25,27,28,29,30,31,
@@ -59,8 +60,10 @@ void OI::InitializeHardware(){
 
 		gear_solenoid_button = new frc::JoystickButton(operator_controller, 1);
 		shooter_spin_button = new frc::JoystickButton(operator_controller, 2);
+		intake_obtain_balls = new frc::JoystickButton(driver_controller, 3);
 
 		gear_solenoid_button->ToggleWhenPressed(new TeleOpGearManipulatorActuateSolenoids());
 		shooter_spin_button->ToggleWhenPressed(new TeleOpShooterSpinUp());
+		intake_obtain_balls->ToggleWhenPressed(new TeleOpIntakeObtainBalls());
 	}
 }

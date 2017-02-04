@@ -3,6 +3,7 @@
 #include <WPILib.h>
 #include "../RobotMap.h"
 #include "../Robot.h"
+#include "../Commands/TeleOp/TeleOpIntake/TeleOpIntakeObtainBalls.h"
 
 Intake::Intake() : frc::Subsystem("Intake") {
 	initialized = false;
@@ -13,12 +14,13 @@ void Intake::InitDefaultCommand() {
 	if(!initialized){
 		Intake::InitializeHardware();
 	}
+	//SetDefaultCommand(new TeleOpIntakeObtainBalls());
 }
 
 void Intake::InitializeHardware(){
 	initialized = true;
 
-	intake_motor = new CANTalon(9);
+	intake_motor = new CANTalon(10);
 }
 
 void Intake::DriveIntakeMotor(float speed){
