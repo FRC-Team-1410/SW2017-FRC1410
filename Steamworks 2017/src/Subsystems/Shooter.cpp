@@ -28,7 +28,7 @@ void Shooter::InitializeHardware(){
 	motor_one->SetControlMode(frc::CANSpeedController::ControlMode::kSpeed);
 	motor_two->SetControlMode(frc::CANSpeedController::ControlMode::kFollower);
 
-	motor_one->SetSensorDirection(true);
+	motor_one->SetSensorDirection(false);
 	//motor_two->SetSensorDirection(true);
 
 	motor_one->SetVoltageRampRate(12);
@@ -37,7 +37,7 @@ void Shooter::InitializeHardware(){
 	motor_one->ConfigNominalOutputVoltage(+0.0f, -0.0f);
 	//motor_two->ConfigNominalOutputVoltage(+0.0f, -0.0f);
 
-	motor_one->ConfigPeakOutputVoltage(+0.0f, -12.0f);
+	motor_one->ConfigPeakOutputVoltage(+12.0f, -0.0f);
 	//motor_two->ConfigPeakOutputVoltage(+0.0f, -12.0f);
 
 	motor_one->SetPID(0, 0, 0, 0.05);
