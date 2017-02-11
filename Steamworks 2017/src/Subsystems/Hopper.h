@@ -1,19 +1,23 @@
-#ifndef Hopper_H
-#define Hopper_H
+#ifndef Agitate_H
+#define Agitate_H
 
 #include <Commands/Subsystem.h>
 #include <CANTalon.h>
 #include <WPILib.h>
 
-class Hopper: public frc::Subsystem {
+class Agitate: public frc::Subsystem
+{
 public:
-	Hopper();
+	Agitate();
 	void InitDefaultCommand() override;
+	void DriveHopperMotor(float speed);
 
 private:
 	bool initialized;
 
+	CANTalon * hopper_motor;
+
 	void InitializeHardware();
 };
 
-#endif  // Hopper_H
+#endif  // Intake_H

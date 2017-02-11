@@ -27,7 +27,7 @@ public:
 	static std::unique_ptr<Climber> climber;
 	static std::unique_ptr<Shooter> shooter;
 	static std::unique_ptr<Intake> intake;
-	static std::unique_ptr<Hopper> hopper;
+	static std::unique_ptr<Agitate> agitate;
 };
 
 #endif  // CommandBase_H

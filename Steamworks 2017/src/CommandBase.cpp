@@ -13,7 +13,7 @@ std::unique_ptr<GearManipulator> CommandBase::gearmanipulator = std::make_unique
 std::unique_ptr<Climber> CommandBase::climber = std::make_unique<Climber>();
 std::unique_ptr<Shooter> CommandBase::shooter = std::make_unique<Shooter>();
 std::unique_ptr<Intake> CommandBase::intake = std::make_unique<Intake>();
-std::unique_ptr<Hopper> CommandBase::hopper = std::make_unique<Hopper>();
+std::unique_ptr<Agitate> CommandBase::agitate = std::make_unique<Agitate>();
 
 CommandBase::CommandBase(const std::string &name) : frc::Command(name) {
 
