@@ -10,12 +10,15 @@ public:
 	GearManipulator();
 	void InitDefaultCommand() override;
 	void ActuateSolenoids(bool forward);
+	void FlapDoorsToHolderFastly(float magnitude);
 
 private:
 	bool initialized;
 
 	frc::DoubleSolenoid * left_solenoid;
 	//frc::DoubleSolenoid * right_solenoid;
+	frc::Servo * left_servo;
+	frc::Servo * right_servo;
 
 	void InitializeHardware();
 };

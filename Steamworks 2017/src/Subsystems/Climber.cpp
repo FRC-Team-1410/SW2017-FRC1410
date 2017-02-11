@@ -20,12 +20,9 @@ void Climber::InitDefaultCommand() {
 
 void Climber::InitializeHardware(){
 	initialized = true;
-	climbing_motor_one = new CANTalon(5);
-	climbing_motor_two = new CANTalon(7);
 
 	climbing_motor_one = new CANTalon(5);
 	climbing_motor_two = new CANTalon(7);
-
 }
 
 void Climber::RotateZeDrum(float speed){
