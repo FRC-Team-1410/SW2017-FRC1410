@@ -1,35 +1,25 @@
 #include "Hopper.h"
 #include <CANTalon.h>
-#include <Commands/TeleOp/TeleOpHopper/TeleOpHopperAgitateBalls.h>
 #include <WPILib.h>
 #include "../RobotMap.h"
 #include "../Robot.h"
 
-Agitate::Agitate() : frc::Subsystem("Agitate")
-{
+Hopper::Hopper() : frc::Subsystem("Hopper"){
 	initialized = false;
-<<<<<<< HEAD
 
-	motor = false;
-=======
-	hopper_motor = 0;
->>>>>>> origin/master
+	motor = 0;
 }
 
-void Agitate::InitDefaultCommand()
+void Hopper::InitDefaultCommand()
 {
-	if(!initialized)
-	{
-		Agitate::InitializeHardware();
+	if(!initialized){
+		Hopper::InitializeHardware();
 	}
-	//SetDefaultCommand(new TeleOpIntakeObtainBalls());
 }
 
-void Agitate::InitializeHardware()
-{
+void Hopper::InitializeHardware(){
 	initialized = true;
 
-<<<<<<< HEAD
 	motor = new CANTalon(11);
 }
 
@@ -38,12 +28,4 @@ void Hopper::SpinMotor(float speed){
 		Hopper::InitializeHardware();
 	}
 	motor->Set(speed);
-=======
-	hopper_motor = new CANTalon(9);
-}
-
-void Agitate::DriveHopperMotor(float speed)
-{
-	hopper_motor->Set(speed);
->>>>>>> origin/master
 }
