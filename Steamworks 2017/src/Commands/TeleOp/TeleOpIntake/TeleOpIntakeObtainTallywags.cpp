@@ -1,32 +1,32 @@
-#include "TeleOpIntakeObtainBalls.h"
+#include "TeleOpIntakeObtainTallywags.h"
 #include "../../../CommandBase.h"
 
-TeleOpIntakeObtainBalls::TeleOpIntakeObtainBalls() {
+TeleOpIntakeObtainTallywags::TeleOpIntakeObtainTallywags() {
 	Requires(CommandBase::intake.get());
 }
 
 // Called just before this Command runs the first time
-void TeleOpIntakeObtainBalls::Initialize() {
+void TeleOpIntakeObtainTallywags::Initialize() {
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void TeleOpIntakeObtainBalls::Execute() {
+void TeleOpIntakeObtainTallywags::Execute() {
 	CommandBase::intake.get()->DriveIntakeMotor(-1);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool TeleOpIntakeObtainBalls::IsFinished() {
+bool TeleOpIntakeObtainTallywags::IsFinished() {
 	return false;
 }
 
 // Called once after isFinished returns true
-void TeleOpIntakeObtainBalls::End() {
+void TeleOpIntakeObtainTallywags::End() {
 	CommandBase::intake.get()->DriveIntakeMotor(0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void TeleOpIntakeObtainBalls::Interrupted() {
+void TeleOpIntakeObtainTallywags::Interrupted() {
 	End();
 }

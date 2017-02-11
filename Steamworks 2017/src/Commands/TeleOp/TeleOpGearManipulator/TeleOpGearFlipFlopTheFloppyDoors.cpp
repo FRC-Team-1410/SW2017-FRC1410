@@ -14,10 +14,12 @@ void TeleOpGearFlipFlopTheFloppyDoors::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void TeleOpGearFlipFlopTheFloppyDoors::Execute() {
 	if(move_forward){
-		CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(.5);
+		CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0.5);
+		SmartDashboard::PutNumber("Door Position", 0.5);
 	}
 	else{
 		CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0);
+		SmartDashboard::PutNumber("Door Position", 0);
 	}
 }
 

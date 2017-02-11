@@ -28,7 +28,7 @@ void Shooter::InitializeHardware(){
 	motor_one->SetControlMode(frc::CANSpeedController::ControlMode::kSpeed);
 	motor_two->SetControlMode(frc::CANSpeedController::ControlMode::kFollower);
 
-	motor_one->SetSensorDirection(false);
+	motor_one->SetSensorDirection(true);
 	//motor_two->SetSensorDirection(true);
 
 	motor_one->SetVoltageRampRate(12);

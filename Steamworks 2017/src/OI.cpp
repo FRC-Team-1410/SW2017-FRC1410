@@ -1,10 +1,10 @@
+#include <Commands/TeleOp/TeleOpIntake/TeleOpIntakeObtainTallywags.h>
 #include "OI.h"
 
 #include <WPILib.h>
 
 #include "Commands/TeleOp/TeleOpGearManipulator/TeleOpGearManipulatorActuateSolenoids.h"
 #include "Commands/TeleOp/TeleOpShooter/TeleOpShooterSpinUp.h"
-#include "Commands/TeleOp/TeleOpIntake/TeleOpIntakeObtainBalls.h"
 #include "Commands/TeleOp/TeleOpHopper/TeleOpHopperDoTheLaundry.h"
 #include "Commands/TeleOp/TeleOpGearManipulator/TeleOpGearFlipFlopTheFloppyDoors.h"
 
@@ -68,11 +68,10 @@ void OI::InitializeHardware(){
 		intake_obtain_balls = new frc::JoystickButton(operator_controller, 3);
 		hopper_wash_laundry = new frc::JoystickButton(operator_controller, 4);
 		gear_servo_flippity_flop = new frc::JoystickButton(operator_controller, 5);
-		intake_obtain_balls = new frc::JoystickButton(driver_controller, 3);
 
 		gear_solenoid_button->ToggleWhenPressed(new TeleOpGearManipulatorActuateSolenoids());
 		shooter_spin_button->ToggleWhenPressed(new TeleOpShooterSpinUp());
-		intake_obtain_balls->ToggleWhenPressed(new TeleOpIntakeObtainBalls());
+		intake_obtain_balls->ToggleWhenPressed(new TeleOpIntakeObtainTallywags());
 		hopper_wash_laundry->ToggleWhenPressed(new TeleOpHopperDoTheLaundry());
 		gear_servo_flippity_flop->ToggleWhenPressed(new TeleOpGearFlipFlopTheFloppyDoors());
 	}

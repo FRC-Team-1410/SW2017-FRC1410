@@ -5,8 +5,7 @@
 #include <CANTalon.h>
 #include <WPILib.h>
 
-class Hopper: public frc::Subsystem
-{
+class Hopper: public frc::Subsystem{
 public:
 	Hopper();
 	void InitDefaultCommand() override;

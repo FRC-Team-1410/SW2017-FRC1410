@@ -1,9 +1,9 @@
 #include "Intake.h"
 #include <CANTalon.h>
+#include <Commands/TeleOp/TeleOpIntake/TeleOpIntakeObtainTallywags.h>
 #include <WPILib.h>
 #include "../RobotMap.h"
 #include "../Robot.h"
-#include "../Commands/TeleOp/TeleOpIntake/TeleOpIntakeObtainBalls.h"
 
 Intake::Intake() : frc::Subsystem("Intake") {
 	initialized = false;
