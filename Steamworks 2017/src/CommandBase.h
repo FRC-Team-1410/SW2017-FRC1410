@@ -6,7 +6,6 @@
 
 #include <Commands/Command.h>
 
-#include "Autonomous.h"
 #include "OI.h"
 #include "Subsystems/DriveBase.h"
 #include "Subsystems/GearManipulator.h"
@@ -22,7 +21,6 @@ public:
 	CommandBase() = default;
 
 	// Create a single static instance of all of your subsystems
-	static std::unique_ptr<AutonomousMode> autonomous;
 	static std::unique_ptr<OI> oi;
 	static std::unique_ptr<DriveBase> drivebase;
 	static std::unique_ptr<GearManipulator> gearmanipulator;

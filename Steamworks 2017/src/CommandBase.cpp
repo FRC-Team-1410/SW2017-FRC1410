@@ -2,13 +2,11 @@
 
 #include <Commands/Scheduler.h>
 
-#include "Autonomous.h"
 #include "OI.h"
 #include "Subsystems/DriveBase.h"
 #include "Subsystems/GearManipulator.h"
 #include "Subsystems/Climber.h"
 
-std::unique_ptr<AutonomousMode> CommandBase::autonomous = std::make_unique<AutonomousMode>();
 std::unique_ptr<OI> CommandBase::oi = std::make_unique<OI>();
 std::unique_ptr<DriveBase> CommandBase::drivebase = std::make_unique<DriveBase>();
 std::unique_ptr<GearManipulator> CommandBase::gearmanipulator = std::make_unique<GearManipulator>();
