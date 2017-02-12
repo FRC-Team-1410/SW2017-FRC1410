@@ -48,5 +48,5 @@ void GearManipulator::FlapDoorsToHolderFastly(float magnitude){
 		GearManipulator::InitializeHardware();
 	}
 	left_servo->Set(magnitude);
-	right_servo->Set(magnitude * -1);
+	right_servo->Set(magnitude);
 }

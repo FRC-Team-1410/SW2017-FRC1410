@@ -30,7 +30,14 @@ bool TeleOpGearFlipFlopTheFloppyDoors::IsFinished() {
 
 // Called once after isFinished returns true
 void TeleOpGearFlipFlopTheFloppyDoors::End() {
-
+	if(move_forward){
+			CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0.5);
+			SmartDashboard::PutNumber("Door Position", 0.5);
+		}
+		else{
+			CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0);
+			SmartDashboard::PutNumber("Door Position", 0);
+		}
 }
 
 // Called when another command which requires one or more of the same
