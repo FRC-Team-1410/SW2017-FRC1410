@@ -10,8 +10,7 @@ Hopper::Hopper() : frc::Subsystem("Hopper"){
 	motor = 0;
 }
 
-void Hopper::InitDefaultCommand()
-{
+void Hopper::InitDefaultCommand(){
 	if(!initialized){
 		Hopper::InitializeHardware();
 	}
