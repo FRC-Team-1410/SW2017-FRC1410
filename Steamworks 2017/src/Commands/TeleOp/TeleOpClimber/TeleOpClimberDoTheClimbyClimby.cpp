@@ -12,7 +12,7 @@ void TeleOpClimberDoTheClimbyClimby::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void TeleOpClimberDoTheClimbyClimby::Execute() {
-	CommandBase::climber.get()->RotateZeDrum(CommandBase::oi.get()->ReturnOperatorAxis(1));
+	CommandBase::climber.get()->RotateZeDrum(CommandBase::oi.get()->ReturnOperatorAxis(5));
 }
 
 // Make this return true when this Command no longer needs to run execute()

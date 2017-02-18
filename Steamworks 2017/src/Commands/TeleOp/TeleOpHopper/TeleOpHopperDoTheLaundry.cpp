@@ -12,7 +12,7 @@ void TeleOpHopperDoTheLaundry::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void TeleOpHopperDoTheLaundry::Execute() {
-	CommandBase::hopper.get()->SpinMotor(0.35);
+	CommandBase::hopper.get()->SpinMotor(0.5);
 }
 
 // Make this return true when this Command no longer needs to run execute()

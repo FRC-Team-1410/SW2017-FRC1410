@@ -20,9 +20,12 @@ void Intake::InitDefaultCommand() {
 void Intake::InitializeHardware(){
 	initialized = true;
 
-	intake_motor = new CANTalon(10);
+	intake_motor = new CANTalon(9);
+	intake_motor->ConfigMaxOutputVoltage(12);
 }
 
 void Intake::DriveIntakeMotor(float speed){
-	intake_motor->Set(speed);
+	intake_motor->Set(-0.65 * speed);
+	SmartDashboard::PutNumber("INTAKE CURRENT DRAW", intake_motor->GetOutputCurrent());
+	SmartDashboard::PutNumber("INTAKE VOLTAGE DRAW", intake_motor->GetOutputVoltage());
 }

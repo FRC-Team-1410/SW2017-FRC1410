@@ -15,7 +15,7 @@ void Climber::InitDefaultCommand() {
 	if(!initialized){
 		Climber::InitializeHardware();
 	}
-	SetDefaultCommand(new TeleOpClimberDoTheClimbyClimby());
+	//SetDefaultCommand(new TeleOpClimberDoTheClimbyClimby());
 }
 
 void Climber::InitializeHardware(){
