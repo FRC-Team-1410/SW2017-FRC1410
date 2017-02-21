@@ -9,6 +9,14 @@ TeleOpGearFlipFlopTheFloppyDoors::TeleOpGearFlipFlopTheFloppyDoors() {
 // Called just before this Command runs the first time
 void TeleOpGearFlipFlopTheFloppyDoors::Initialize() {
 	move_forward = !move_forward;
+	if(move_forward){
+			CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0.5);
+			SmartDashboard::PutNumber("Door Position", 0.5);
+		}
+		else{
+			CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0);
+			SmartDashboard::PutNumber("Door Position", 0);
+		}
 }
 
 // Called repeatedly when this Command is scheduled to run

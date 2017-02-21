@@ -12,6 +12,9 @@ public:
 	void DriveMecanum(double x_magnitude, double y_magnitude, double rotation_magnitude);
 	float ReturnEncoderDistance();
 	void ResetEncoders();
+	void DriveStraight(float speed);
+	void SwitchToVoltage();
+	void SwitchToPercentVbus();
 
 private:
 	bool initialized;
@@ -28,6 +31,8 @@ private:
 
 	frc::RobotDrive * full_drive;
 	//frc::RobotDrive * mini_drive;
+
+	frc::Relay * lights;
 
 	void InitializeHardware();
 };

@@ -7,7 +7,8 @@
 
 Intake::Intake() : frc::Subsystem("Intake") {
 	initialized = false;
-	intake_motor = 0;
+	intake_motor_one = 0;
+	intake_motor_two = 0;
 }
 
 void Intake::InitDefaultCommand() {
@@ -20,12 +21,16 @@ void Intake::InitDefaultCommand() {
 void Intake::InitializeHardware(){
 	initialized = true;
 
-	intake_motor = new CANTalon(9);
-	intake_motor->ConfigMaxOutputVoltage(12);
+	intake_motor_one = new CANTalon(9);
+	intake_motor_two = new CANTalon(11);
+	//intake_motor->ConfigMaxOutputVoltage(12);
 }
 
 void Intake::DriveIntakeMotor(float speed){
-	intake_motor->Set(-0.65 * speed);
-	SmartDashboard::PutNumber("INTAKE CURRENT DRAW", intake_motor->GetOutputCurrent());
-	SmartDashboard::PutNumber("INTAKE VOLTAGE DRAW", intake_motor->GetOutputVoltage());
+	intake_motor_one->Set(-0.5 * speed);
+	intake_motor_two->Set(0.5 * speed);
+	SmartDashboard::PutNumber("INTAKE ONE CURRENT DRAW", intake_motor_one->GetOutputCurrent());
+	SmartDashboard::PutNumber("INTAKE ONE VOLTAGE DRAW", intake_motor_one->GetOutputVoltage());
+	SmartDashboard::PutNumber("INTAKE TWO CURRENT DRAW", intake_motor_two->GetOutputCurrent());
+	SmartDashboard::PutNumber("INTAKE TWO VOLTAGE DRAW", intake_motor_two->GetOutputVoltage());
 }

@@ -24,8 +24,8 @@ public:
 	void TestPeriodic() override;
 
 private:
-	//std::unique_ptr<frc::Command> autonomousCommand;
-	//frc::SendableChooser<frc::Command*> chooser;
+	std::unique_ptr<frc::Command> auto_command;
+	frc::SendableChooser<frc::Command*> auto_choice;
 };
 
 #endif // Robot_H

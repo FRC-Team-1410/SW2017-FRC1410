@@ -1,3 +1,4 @@
+#include <Commands/Autonomous/AutonomousDriveBase/AutonomousDriveBaseDriveStraight.h>
 #include <memory>
 
 #include <Commands/Command.h>
@@ -6,15 +7,15 @@
 #include <LiveWindow/LiveWindow.h>
 #include <SmartDashboard/SendableChooser.h>
 #include <SmartDashboard/SmartDashboard.h>
-
+#include "Commands/TeleOp/TeleOpGearManipulator/TeleOpGearFlipFlopTheFloppyDoors.h"
 #include "CommandBase.h"
 #include "Robot.h"
 #include <WPILib.h>
 
 void Robot::RobotInit() {
-	//chooser.AddDefault("Default Auto", new ExampleCommand());
+	auto_choice.AddDefault("Test Drive Straight", new AutonomousDriveBaseDriveStraight());
 	// chooser.AddObject("My Auto", new MyAutoCommand());
-	//frc::SmartDashboard::PutData("Auto Modes", &chooser);
+	frc::SmartDashboard::PutData("Auto Modes", &auto_choice);
 	CommandBase::oi.get()->InitializeHardware();
 }
 
@@ -43,17 +44,17 @@ void Robot::DisabledPeriodic() {
  * to the if-else structure below with additional strings & commands.
  */
 void Robot::AutonomousInit() {
-	/* std::string autoSelected = frc::SmartDashboard::GetString("Auto Selector", "Default");
+	std::string autoSelected = frc::SmartDashboard::GetString("Auto Selector", "Default");
 	if (autoSelected == "My Auto") {
-		autonomousCommand.reset(new MyAutoCommand());
+		auto_command.reset(new AutonomousDriveBaseDriveStraight());
 	}
 	else {
-		autonomousCommand.reset(new ExampleCommand());
-	} */
-		//autonomousCommand.reset(chooser.GetSelected());
-		//if (autonomousCommand.get() != nullptr) {
-		//autonomousCommand->Start();
-	//}
+		auto_command.reset(new AutonomousDriveBaseDriveStraight());
+	}
+		auto_command.reset(auto_choice.GetSelected());
+		if (auto_command.get() != nullptr) {
+		auto_command->Start();
+	}
 }
 void Robot::AutonomousPeriodic() {
 	frc::Scheduler::GetInstance()->Run();
@@ -63,15 +64,16 @@ void Robot::TeleopInit() {
 	// teleop starts running. If you want the autonomous to
 	// continue until interrupted by another command, remove
 	// this line or comment it out.
-	//if (autonomousCommand != nullptr) {
-		//autonomousCommand->Cancel();
-		//}
+	if (auto_command != nullptr) {
+		auto_command->Cancel();
+		}
 	CommandBase::oi.get()->InitializeHardware();
-
+	//CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0);
 }
 
 void Robot::TeleopPeriodic() {
 	frc::Scheduler::GetInstance()->Run();
+	//CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0);
 }
 
 void Robot::TestPeriodic() {

@@ -14,7 +14,8 @@ public:
 private:
 	bool initialized;
 
-	CANTalon * intake_motor;
+	CANTalon * intake_motor_one;
+	CANTalon * intake_motor_two;
 
 	void InitializeHardware();
 };

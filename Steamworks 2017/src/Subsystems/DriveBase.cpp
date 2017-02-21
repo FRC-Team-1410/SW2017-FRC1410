@@ -20,6 +20,8 @@ DriveBase::DriveBase() : frc::Subsystem("DriveBase") {
 
 	full_drive = 0;
 	//mini_drive = 0;
+
+	lights = 0;
 }
 
 void DriveBase::InitDefaultCommand() {
@@ -46,6 +48,8 @@ void DriveBase::InitializeHardware(){
 
 	//mini_drive = new frc::RobotDrive(front_left_mini, back_left_mini, front_right_mini, back_right_mini);
 
+	lights = new frc::Relay(2, frc::Relay::Value::kForward);
+
 	//full_drive->SetInvertedMotor(full_drive->kFrontLeftMotor, true);
 	full_drive->SetInvertedMotor(full_drive->kFrontRightMotor, true);
 	//full_drive->SetInvertedMotor(full_drive->kRearLeftMotor, true);
@@ -71,8 +75,11 @@ void DriveBase::DriveMecanum(double x_magnitude, double y_magnitude, double rota
 	if(!initialized){
 		DriveBase::InitializeHardware();
 	}
-
+	lights->Set(frc::Relay::Value::kForward);
 	DriveBase::full_drive->MecanumDrive_Cartesian(x_magnitude, y_magnitude, rotation_magnitude);
+	SmartDashboard::PutNumber("LEFT ENCODER", front_left_motor->GetEncPosition());
+	SmartDashboard::PutNumber("RIGHT ENCODER", front_right_motor->GetEncPosition());
+	SmartDashboard::PutNumber("ENCODER POSITION", DriveBase::ReturnEncoderDistance());
 	//DriveBase::mini_drive->MecanumDrive_Cartesian(x_magnitude, y_magnitude, rotation_magnitude);
 }
 
@@ -98,4 +105,36 @@ void DriveBase::ResetEncoders(){
 
 	front_left_motor->SetEncPosition(0);
 	front_right_motor->SetEncPosition(0);
+}
+
+void DriveBase::DriveStraight(float speed){
+	//DriveBase::SwitchToVoltage();
+
+	front_left_motor->SetControlMode(frc::CANSpeedController::ControlMode::kVoltage);
+	front_right_motor->SetControlMode(frc::CANSpeedController::ControlMode::kVoltage);
+	back_left_motor->SetControlMode(frc::CANSpeedController::ControlMode::kVoltage);
+	back_right_motor->SetControlMode(frc::CANSpeedController::ControlMode::kVoltage);
+
+	front_left_motor->Set(speed);
+	SmartDashboard::PutNumber("Front Left Motor Voltage", front_left_motor->GetOutputVoltage());
+	front_right_motor->Set(speed * -1);
+	SmartDashboard::PutNumber("Front Right Motor Voltage", front_right_motor->GetOutputVoltage());
+	back_left_motor->Set(speed);
+	SmartDashboard::PutNumber("Back Left Motor Voltage", back_left_motor->GetOutputVoltage());
+	back_right_motor->Set(speed * -1);
+	SmartDashboard::PutNumber("Back Right Motor Voltage", back_right_motor->GetOutputVoltage());
+}
+
+void DriveBase::SwitchToVoltage(){
+	front_left_motor->SetControlMode(frc::CANSpeedController::ControlMode::kVoltage);
+	front_right_motor->SetControlMode(frc::CANSpeedController::ControlMode::kVoltage);
+	back_left_motor->SetControlMode(frc::CANSpeedController::ControlMode::kVoltage);
+	back_right_motor->SetControlMode(frc::CANSpeedController::ControlMode::kVoltage);
+}
+
+void DriveBase::SwitchToPercentVbus(){
+	front_left_motor->SetControlMode(frc::CANSpeedController::ControlMode::kPercentVbus);
+	front_right_motor->SetControlMode(frc::CANSpeedController::ControlMode::kPercentVbus);
+	back_left_motor->SetControlMode(frc::CANSpeedController::ControlMode::kPercentVbus);
+	back_right_motor->SetControlMode(frc::CANSpeedController::ControlMode::kPercentVbus);
 }

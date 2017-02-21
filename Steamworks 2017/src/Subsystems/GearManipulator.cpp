@@ -2,6 +2,9 @@
 #include <CANTalon.h>
 #include <WPILib.h>
 #include "../RobotMap.h"
+#include "../Commands/TeleOp/TeleOpGearManipulator/TeleOpGearFlipFlopTheFloppyDoors.h"
+#include "../Commands/TeleOp/TeleOpGearManipulator/TeleOpGearManipulatorActuateSolenoids.h"
+
 
 GearManipulator::GearManipulator() : frc::Subsystem("GearManipulator") {
 	initialized = false;
@@ -16,6 +19,7 @@ void GearManipulator::InitDefaultCommand() {
 	if(!initialized){
 		GearManipulator::InitializeHardware();
 	}
+	SetDefaultCommand(new TeleOpGearManipulatorActuateSolenoids());
 }
 
 void GearManipulator::InitializeHardware(){

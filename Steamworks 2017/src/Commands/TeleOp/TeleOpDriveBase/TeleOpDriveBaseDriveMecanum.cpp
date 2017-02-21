@@ -7,7 +7,7 @@ TeleOpDriveBaseDriveMecanum::TeleOpDriveBaseDriveMecanum() {
 
 // Called just before this Command runs the first time
 void TeleOpDriveBaseDriveMecanum::Initialize() {
-
+	CommandBase::drivebase.get()->SwitchToPercentVbus();
 }
 
 // Called repeatedly when this Command is scheduled to run
