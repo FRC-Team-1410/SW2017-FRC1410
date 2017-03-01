@@ -1,6 +1,7 @@
 #include "Commands/Autonomous/AutonomousTestShoot/AutonomousTestShoot.h"
 #include "Commands/Autonomous/AutonomousTestDropoff/AutonomousTestDropoff.h"
 #include "Commands/Autonomous/AutonomousTestStraight/AutonomousTestStraight.h"
+#include "Commands/Autonomous/AutonomousTestTurn/AutonomousTestTurn.h"
 
 #include <memory>
 
@@ -19,6 +20,7 @@ void Robot::RobotInit() {
 	auto_choice.AddDefault("Test Shoot", new AutonomousTestShoot());
 	auto_choice.AddObject("Test Dropoff", new AutonomousTestDropoff());
 	auto_choice.AddObject("Test Straight", new AutonomousTestStraight());
+	auto_choice.AddObject("Test Turn", new AutonomousTestTurn());
 	frc::SmartDashboard::PutData("Auto Modes", &auto_choice);
 	CommandBase::oi.get()->InitializeHardware();
 }
@@ -49,15 +51,23 @@ void Robot::DisabledPeriodic() {
  */
 void Robot::AutonomousInit() {
 	std::string autoSelected = frc::SmartDashboard::GetString("Auto Selector", "Default");
+
 	if (autoSelected == "Test Shoot") {
 		auto_command.reset(new AutonomousTestShoot());
 	}
+
 	else if(autoSelected == "Test Dropoff"){
 		auto_command.reset(new AutonomousTestDropoff());
 	}
+
 	else if(autoSelected == "Test Straight"){
 		auto_command.reset(new AutonomousTestStraight());
 	}
+
+	else if(autoSelected == "Test Turn"){
+		auto_command.reset(new AutonomousTestTurn());
+	}
+
 	else {
 		auto_command.reset(new AutonomousTestShoot());
 	}
@@ -68,9 +78,11 @@ void Robot::AutonomousInit() {
 		auto_command->Start();
 	}
 }
+
 void Robot::AutonomousPeriodic() {
 	frc::Scheduler::GetInstance()->Run();
 }
+
 void Robot::TeleopInit() {
 	// This makes sure that the autonomous stops running when
 	// teleop starts running. If you want the autonomous to
