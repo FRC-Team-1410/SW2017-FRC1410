@@ -1,4 +1,4 @@
-#include <Commands/Autonomous/AutonomousDriveBase/AutonomousDriveBaseDriveStraight.h>
+#include "Commands/Autonomous/AutonomousTestShoot/AutonomousTestShoot.h"
 #include <memory>
 
 #include <Commands/Command.h>
@@ -13,8 +13,7 @@
 #include <WPILib.h>
 
 void Robot::RobotInit() {
-	auto_choice.AddDefault("Test Drive Straight", new AutonomousDriveBaseDriveStraight());
-	// chooser.AddObject("My Auto", new MyAutoCommand());
+	auto_choice.AddDefault("Test Shoot", new AutonomousTestShoot());
 	frc::SmartDashboard::PutData("Auto Modes", &auto_choice);
 	CommandBase::oi.get()->InitializeHardware();
 }
@@ -45,11 +44,11 @@ void Robot::DisabledPeriodic() {
  */
 void Robot::AutonomousInit() {
 	std::string autoSelected = frc::SmartDashboard::GetString("Auto Selector", "Default");
-	if (autoSelected == "My Auto") {
-		auto_command.reset(new AutonomousDriveBaseDriveStraight());
+	if (autoSelected == "Test Shoot") {
+		auto_command.reset(new AutonomousTestShoot());
 	}
 	else {
-		auto_command.reset(new AutonomousDriveBaseDriveStraight());
+		auto_command.reset(new AutonomousTestShoot());
 	}
 		auto_command.reset(auto_choice.GetSelected());
 		if (auto_command.get() != nullptr) {

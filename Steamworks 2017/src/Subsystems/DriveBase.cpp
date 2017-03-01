@@ -48,7 +48,7 @@ void DriveBase::InitializeHardware(){
 
 	//mini_drive = new frc::RobotDrive(front_left_mini, back_left_mini, front_right_mini, back_right_mini);
 
-	lights = new frc::Relay(2, frc::Relay::Value::kForward);
+	lights = new frc::Relay(2, frc::Relay::Direction::kForwardOnly);
 
 	//full_drive->SetInvertedMotor(full_drive->kFrontLeftMotor, true);
 	full_drive->SetInvertedMotor(full_drive->kFrontRightMotor, true);
@@ -75,7 +75,7 @@ void DriveBase::DriveMecanum(double x_magnitude, double y_magnitude, double rota
 	if(!initialized){
 		DriveBase::InitializeHardware();
 	}
-	lights->Set(frc::Relay::Value::kForward);
+	lights->Set(frc::Relay::Value::kOn);
 	DriveBase::full_drive->MecanumDrive_Cartesian(x_magnitude, y_magnitude, rotation_magnitude);
 	SmartDashboard::PutNumber("LEFT ENCODER", front_left_motor->GetEncPosition());
 	SmartDashboard::PutNumber("RIGHT ENCODER", front_right_motor->GetEncPosition());

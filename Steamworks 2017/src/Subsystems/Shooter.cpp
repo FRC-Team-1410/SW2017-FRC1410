@@ -40,7 +40,7 @@ void Shooter::InitializeHardware(){
 	motor_one->ConfigPeakOutputVoltage(+12.0f, -0.0f);
 	//motor_two->ConfigPeakOutputVoltage(+0.0f, -12.0f);
 
-	motor_one->SetPID(0, 0, 0, 0.05);
+	motor_one->SetPID(0.0001, 0, 0.00001, 0.05);
 	//motor_two->SetPID(0, 0, 0, 0.05);
 }
 
@@ -59,4 +59,8 @@ void Shooter::SpinUpSpinner(float speed){
 
 	SmartDashboard::PutNumber("Shooter Motor 1 Talon Velocity (~-2800)", motor_one->GetSpeed());
 	//SmartDashboard::PutNumber("Shooter Motor 2 Talon Velocity (~0)", motor_two->GetSpeed());
+}
+
+double Shooter::ReturnShooterSpeed(){
+	return motor_one->GetEncVel();
 }

@@ -78,5 +78,7 @@ void OI::InitializeHardware(){
 		hopper_wash_laundry->ToggleWhenPressed(new TeleOpHopperDoTheLaundry());
 		gear_servo_flippity_flop->ToggleWhenPressed(new TeleOpGearFlipFlopTheFloppyDoors());
 		climber_rotate->ToggleWhenPressed(new TeleOpClimberDoTheClimbyClimby());
+
+		//gear_servo_flippity_flop->WhenInactive(new TeleOpGearManipulatorActuateSolenoids());
 	}
 }

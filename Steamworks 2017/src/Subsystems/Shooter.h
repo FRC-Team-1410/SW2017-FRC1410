@@ -10,6 +10,7 @@ public:
 	Shooter();
 	void InitDefaultCommand() override;
 	void SpinUpSpinner(float speed);
+	double ReturnShooterSpeed();
 
 private:
 	bool initialized;

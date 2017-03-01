@@ -19,7 +19,7 @@ void GearManipulator::InitDefaultCommand() {
 	if(!initialized){
 		GearManipulator::InitializeHardware();
 	}
-	SetDefaultCommand(new TeleOpGearManipulatorActuateSolenoids());
+	//SetDefaultCommand(new TeleOpGearManipulatorActuateSolenoids());
 }
 
 void GearManipulator::InitializeHardware(){
