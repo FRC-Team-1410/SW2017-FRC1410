@@ -29,8 +29,8 @@ void Intake::InitializeHardware(){
 void Intake::DriveIntakeMotor(float speed){
 	intake_motor_one->Set(-0.5 * speed);
 	intake_motor_two->Set(0.5 * speed);
-	SmartDashboard::PutNumber("INTAKE ONE CURRENT DRAW", intake_motor_one->GetOutputCurrent());
-	SmartDashboard::PutNumber("INTAKE ONE VOLTAGE DRAW", intake_motor_one->GetOutputVoltage());
-	SmartDashboard::PutNumber("INTAKE TWO CURRENT DRAW", intake_motor_two->GetOutputCurrent());
-	SmartDashboard::PutNumber("INTAKE TWO VOLTAGE DRAW", intake_motor_two->GetOutputVoltage());
+	//SmartDashboard::PutNumber("INTAKE ONE CURRENT DRAW", intake_motor_one->GetOutputCurrent());
+	//SmartDashboard::PutNumber("INTAKE ONE VOLTAGE DRAW", intake_motor_one->GetOutputVoltage());
+	//SmartDashboard::PutNumber("INTAKE TWO CURRENT DRAW", intake_motor_two->GetOutputCurrent());
+	//SmartDashboard::PutNumber("INTAKE TWO VOLTAGE DRAW", intake_motor_two->GetOutputVoltage());
 }

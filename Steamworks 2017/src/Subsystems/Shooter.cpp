@@ -51,13 +51,13 @@ void Shooter::SpinUpSpinner(float speed){
 	motor_one->Set(speed);
 	motor_two->Set(6);
 
-	SmartDashboard::PutNumber("Shooter Motor 1 Output Voltage (~6.9)", motor_one->GetOutputVoltage());
-	SmartDashboard::PutNumber("Shooter Motor 2 Output Voltage (~6.9)", motor_two->GetOutputVoltage());
+	//SmartDashboard::PutNumber("Shooter Motor 1 Output Voltage (~6.9)", motor_one->GetOutputVoltage());
+	//SmartDashboard::PutNumber("Shooter Motor 2 Output Voltage (~6.9)", motor_two->GetOutputVoltage());
 
-	SmartDashboard::PutNumber("Shooter Motor 1 Encoder Velocity (~20000)", motor_one->GetEncVel());
+	//SmartDashboard::PutNumber("Shooter Motor 1 Encoder Velocity (~20000)", motor_one->GetEncVel());
 	//SmartDashboard::PutNumber("Shooter Motor 2 Encoder Velocity (~0)", motor_two->GetEncVel());
 
-	SmartDashboard::PutNumber("Shooter Motor 1 Talon Velocity (~-2800)", motor_one->GetSpeed());
+	//SmartDashboard::PutNumber("Shooter Motor 1 Talon Velocity (~-2800)", motor_one->GetSpeed());
 	//SmartDashboard::PutNumber("Shooter Motor 2 Talon Velocity (~0)", motor_two->GetSpeed());
 }
 

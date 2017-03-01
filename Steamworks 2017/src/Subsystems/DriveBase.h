@@ -4,6 +4,7 @@
 #include <Commands/Subsystem.h>
 #include <CANTalon.h>
 #include <WPILib.h>
+#include <AHRS.h>
 
 class DriveBase: public frc::Subsystem {
 public:
@@ -15,6 +16,13 @@ public:
 	void DriveStraight(float speed);
 	void SwitchToVoltage();
 	void SwitchToPercentVbus();
+
+	float ReturnDrivenInches(float radius);
+	float ReturnDrivenTicks();
+
+	float ReturnAngle();
+
+	void PutNumbersFromNavXMXP();
 
 private:
 	bool initialized;
@@ -32,7 +40,7 @@ private:
 	frc::RobotDrive * full_drive;
 	//frc::RobotDrive * mini_drive;
 
-	frc::Relay * lights;
+	AHRS * navigation;
 
 	void InitializeHardware();
 };
