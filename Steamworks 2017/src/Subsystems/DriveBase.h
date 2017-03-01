@@ -22,6 +22,8 @@ public:
 
 	float ReturnAngle();
 
+	void RotateToAngle(float angle);
+
 	void PutNumbersFromNavXMXP();
 
 private:

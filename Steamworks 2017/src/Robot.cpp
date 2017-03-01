@@ -1,4 +1,7 @@
 #include "Commands/Autonomous/AutonomousTestShoot/AutonomousTestShoot.h"
+#include "Commands/Autonomous/AutonomousTestDropoff/AutonomousTestDropoff.h"
+#include "Commands/Autonomous/AutonomousTestStraight/AutonomousTestStraight.h"
+
 #include <memory>
 
 #include <Commands/Command.h>
@@ -14,6 +17,8 @@
 
 void Robot::RobotInit() {
 	auto_choice.AddDefault("Test Shoot", new AutonomousTestShoot());
+	auto_choice.AddObject("Test Dropoff", new AutonomousTestDropoff());
+	auto_choice.AddObject("Test Straight", new AutonomousTestStraight());
 	frc::SmartDashboard::PutData("Auto Modes", &auto_choice);
 	CommandBase::oi.get()->InitializeHardware();
 }
@@ -47,11 +52,19 @@ void Robot::AutonomousInit() {
 	if (autoSelected == "Test Shoot") {
 		auto_command.reset(new AutonomousTestShoot());
 	}
+	else if(autoSelected == "Test Dropoff"){
+		auto_command.reset(new AutonomousTestDropoff());
+	}
+	else if(autoSelected == "Test Straight"){
+		auto_command.reset(new AutonomousTestStraight());
+	}
 	else {
 		auto_command.reset(new AutonomousTestShoot());
 	}
-		auto_command.reset(auto_choice.GetSelected());
-		if (auto_command.get() != nullptr) {
+
+	auto_command.reset(auto_choice.GetSelected());
+
+	if (auto_command.get() != nullptr) {
 		auto_command->Start();
 	}
 }
