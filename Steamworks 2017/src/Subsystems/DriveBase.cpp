@@ -103,18 +103,11 @@ void DriveBase::ResetEncoders(){
 	front_right_motor->SetEncPosition(0);
 }
 
-void DriveBase::DriveStraight(float speed){
-	//DriveBase::SwitchToVoltage();
-
-	front_left_motor->SetControlMode(frc::CANSpeedController::ControlMode::kVoltage);
-	front_right_motor->SetControlMode(frc::CANSpeedController::ControlMode::kVoltage);
-	back_left_motor->SetControlMode(frc::CANSpeedController::ControlMode::kVoltage);
-	back_right_motor->SetControlMode(frc::CANSpeedController::ControlMode::kVoltage);
-
-	front_left_motor->Set(speed);
-	front_right_motor->Set(speed * -1);
-	back_left_motor->Set(speed);
-	back_right_motor->Set(speed * -1);
+void DriveBase::DriveStraight(float left_speed, float right_speed){
+	front_left_motor->Set(left_speed);
+	front_right_motor->Set(right_speed);
+	back_left_motor->Set(left_speed);
+	back_right_motor->Set(right_speed);
 }
 
 void DriveBase::SwitchToVoltage(){

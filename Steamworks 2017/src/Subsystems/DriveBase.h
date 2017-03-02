@@ -13,7 +13,7 @@ public:
 	void DriveMecanum(double x_magnitude, double y_magnitude, double rotation_magnitude);
 	float ReturnEncoderDistance();
 	void ResetEncoders();
-	void DriveStraight(float speed);
+	void DriveStraight(float left_speed, float right_speed);
 	void SwitchToVoltage();
 	void SwitchToPercentVbus();
 
