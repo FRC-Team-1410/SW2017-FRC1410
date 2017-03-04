@@ -7,7 +7,7 @@ AutonomousTestGyroDriveStraightMoveWheels::AutonomousTestGyroDriveStraightMoveWh
 
 // Called just before this Command runs the first time
 void AutonomousTestGyroDriveStraightMoveWheels::Initialize() {
-
+	CommandBase::drivebase.get()->ResetGyro();
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -57,11 +57,12 @@ void AutonomousTestGyroDriveStraightMoveWheels::Execute() {
 	}
 
 	CommandBase::drivebase.get()->DriveStraight(left_speed, right_speed);
+	CommandBase::drivebase.get()->PutNumbersFromNavXMXP();
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousTestGyroDriveStraightMoveWheels::IsFinished() {
-	return CommandBase::drivebase.get()->ReturnDrivenInches(3.0) >= 60;
+	return CommandBase::drivebase.get()->ReturnDrivenInches(1.5) >= 60;
 }
 
 // Called once after isFinished returns true

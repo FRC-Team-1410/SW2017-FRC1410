@@ -12,7 +12,7 @@ void AutonomousTestDropoffOpenDoorsRotateHinges::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutonomousTestDropoffOpenDoorsRotateHinges::Execute() {
-	CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0.5);
+	CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0);
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -22,7 +22,7 @@ bool AutonomousTestDropoffOpenDoorsRotateHinges::IsFinished() {
 
 // Called once after isFinished returns true
 void AutonomousTestDropoffOpenDoorsRotateHinges::End() {
-	CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0);
+	CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0.5);
 }
 
 // Called when another command which requires one or more of the same

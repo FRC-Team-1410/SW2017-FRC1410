@@ -7,16 +7,19 @@ AutonomousTestTurnDriveTurnMoveWheels::AutonomousTestTurnDriveTurnMoveWheels() {
 
 // Called just before this Command runs the first time
 void AutonomousTestTurnDriveTurnMoveWheels::Initialize() {
+	CommandBase::drivebase.get()->ResetGyro();
+	CommandBase::drivebase.get()->ResetEncoders();
 }
 
 // Called repeatedly when this Command is scheduled to run
 void AutonomousTestTurnDriveTurnMoveWheels::Execute() {
 	CommandBase::drivebase.get()->DriveMecanum(0, 0, 0.5);
+	CommandBase::drivebase.get()->PutNumbersFromNavXMXP();
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousTestTurnDriveTurnMoveWheels::IsFinished() {
-	return CommandBase::drivebase.get()->ReturnAngle() <= 270;
+	return CommandBase::drivebase.get()->ReturnAngle() >= 65;
 }
 
 // Called once after isFinished returns true

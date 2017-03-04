@@ -69,6 +69,8 @@ void DriveBase::InitializeHardware(){
 	front_right_motor->SetFeedbackDevice(CANTalon::QuadEncoder);
 
 	navigation = new AHRS(SPI::Port::kMXP);
+
+	DriveBase::ResetEncoders();
 }
 
 void DriveBase::DriveMecanum(double x_magnitude, double y_magnitude, double rotation_magnitude){
@@ -139,6 +141,7 @@ float DriveBase::ReturnDrivenTicks(){
 
 	distance = (left_encoder + right_encoder) / 2;
 
+	//SmartDashboard::PutNumber("Distance in Ticks", distance);
 	return distance;
 }
 
@@ -149,16 +152,22 @@ float DriveBase::ReturnDrivenInches(float radius){
 
 	float pi = 3.14159265;
 	float circumference = 2 * pi * radius;
-	float ticks_per_revolution = 4096;
+	float ticks_per_revolution = 1024;
+	SmartDashboard::PutNumber("CIRCUMFERENCE", circumference);
 
 	float left_encoder = front_left_motor->GetEncPosition();
-	float right_encoder = front_left_motor->GetEncPosition();
+	float right_encoder = front_right_motor->GetEncPosition();
+
+	SmartDashboard::PutNumber("LEFT ENCODER", left_encoder);
+	SmartDashboard::PutNumber("RIGHT ENCODER", right_encoder);
 
 	float average_encoders = (left_encoder + right_encoder) / 2;
+	SmartDashboard::PutNumber("Distance in Ticks", average_encoders);
 	float revolutions = (average_encoders / ticks_per_revolution);
+	SmartDashboard::PutNumber("REVOLUTIONS", revolutions);
 
 	float distance_covered = circumference * revolutions;
-
+	SmartDashboard::PutNumber("Distance in Inches", distance_covered);
 	return distance_covered;
 }
 
@@ -248,4 +257,8 @@ void DriveBase::PutNumbersFromNavXMXP(){
 
 	float temperature_celsius = navigation->GetTempC();
 	SmartDashboard::PutNumber("Temperature Celsius", temperature_celsius);
+}
+
+void DriveBase::ResetGyro(){
+	navigation->Reset();
 }

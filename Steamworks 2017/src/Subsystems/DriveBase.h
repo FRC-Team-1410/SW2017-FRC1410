@@ -26,6 +26,8 @@ public:
 
 	void PutNumbersFromNavXMXP();
 
+	void ResetGyro();
+
 private:
 	bool initialized;
 
