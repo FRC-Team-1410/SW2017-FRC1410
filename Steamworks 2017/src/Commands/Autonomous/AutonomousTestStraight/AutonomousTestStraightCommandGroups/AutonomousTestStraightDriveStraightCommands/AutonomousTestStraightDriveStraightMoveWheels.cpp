@@ -16,14 +16,14 @@ void AutonomousTestStraightDriveStraightMoveWheels::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutonomousTestStraightDriveStraightMoveWheels::Execute() {
-	CommandBase::drivebase.get()->DriveMecanum(0, 0.5, 0);
+	CommandBase::drivebase.get()->DriveMecanum(0, 0.35, 0);
 	CommandBase::drivebase.get()->PutNumbersFromNavXMXP();
 	SmartDashboard::PutNumber("TIME TO DRIVE", timer->Get());
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousTestStraightDriveStraightMoveWheels::IsFinished() {
-	return CommandBase::drivebase.get()->ReturnDrivenInches(1.5) >= 45;
+	return CommandBase::drivebase.get()->ReturnDrivenInches(1.5) >= 80;
 }
 
 // Called once after isFinished returns true

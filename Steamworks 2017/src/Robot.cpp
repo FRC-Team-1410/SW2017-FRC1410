@@ -3,6 +3,7 @@
 #include "Commands/Autonomous/AutonomousTestStraight/AutonomousTestStraight.h"
 #include "Commands/Autonomous/AutonomousTestTurn/AutonomousTestTurn.h"
 #include "Commands/Autonomous/AutonomousTestGyro/AutonomousTestGyro.h"
+#include "Commands/Autonomous/AutonomousShootRed/AutonomousShootRed.h"
 
 #include <memory>
 
@@ -23,6 +24,7 @@ void Robot::RobotInit() {
 	auto_choice.AddObject("Test Straight", new AutonomousTestStraight());
 	auto_choice.AddObject("Test Turn", new AutonomousTestTurn());
 	auto_choice.AddObject("Test Gyro", new AutonomousTestGyro());
+	auto_choice.AddObject("Shoot Red", new AutonomousShootRed());
 	frc::SmartDashboard::PutData("Auto Modes", &auto_choice);
 	CommandBase::oi.get()->InitializeHardware();
 }
@@ -72,6 +74,10 @@ void Robot::AutonomousInit() {
 
 	else if(autoSelected == "Test Gyro"){
 		auto_command.reset(new AutonomousTestGyro());
+	}
+
+	else if(autoSelected == "Shoot Red"){
+		auto_command.reset(new AutonomousShootRed());
 	}
 
 	else {

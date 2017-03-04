@@ -12,7 +12,7 @@ void AutonomousTestShootFireFuelMaintainSpeed::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutonomousTestShootFireFuelMaintainSpeed::Execute() {
-	CommandBase::shooter.get()->SpinUpSpinner(1850); //murica fuck yeah
+	CommandBase::shooter.get()->SpinUpSpinner(1776); //murica fuck yeah
 }
 
 // Make this return true when this Command no longer needs to run execute()
