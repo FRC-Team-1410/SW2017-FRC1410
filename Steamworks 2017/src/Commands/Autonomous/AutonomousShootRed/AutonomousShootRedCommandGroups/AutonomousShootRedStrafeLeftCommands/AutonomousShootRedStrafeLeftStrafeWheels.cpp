@@ -14,12 +14,12 @@ void AutonomousShootRedStrafeLeftStrafeWheels::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutonomousShootRedStrafeLeftStrafeWheels::Execute() {
-	CommandBase::drivebase.get()->DriveMecanum(0.5, 0, 0);
+	CommandBase::drivebase.get()->DriveMecanum(-0.75, 0, 0);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousShootRedStrafeLeftStrafeWheels::IsFinished() {
-	return timer->Get() >= 0.5;
+	return timer->Get() >= 1;
 }
 
 // Called once after isFinished returns true

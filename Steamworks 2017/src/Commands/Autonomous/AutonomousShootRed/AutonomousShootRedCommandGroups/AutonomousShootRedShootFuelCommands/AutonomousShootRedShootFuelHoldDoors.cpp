@@ -18,7 +18,7 @@ void AutonomousShootRedShootFuelHoldDoors::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousShootRedShootFuelHoldDoors::IsFinished() {
-	return timer->Get() >= 10;
+	return timer->Get() >= 8;
 }
 
 // Called once after isFinished returns true
