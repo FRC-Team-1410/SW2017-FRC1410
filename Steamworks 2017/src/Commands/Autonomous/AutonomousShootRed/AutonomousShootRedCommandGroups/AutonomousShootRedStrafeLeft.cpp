@@ -7,5 +7,4 @@ AutonomousShootRedStrafeLeft::AutonomousShootRedStrafeLeft() {
 	frc::CommandGroup::AddParallel(new AutonomousShootRedStrafeLeftStrafeWheels(), 1);
 	frc::CommandGroup::AddParallel(new AutonomousShootRedStrafeLeftSpinShooter(), 1);
 	frc::CommandGroup::AddParallel(new AutonomousShootRedStrafeLeftHoldDoors(), 1);
-	SmartDashboard::PutNumber("Part: " , 1);
 }

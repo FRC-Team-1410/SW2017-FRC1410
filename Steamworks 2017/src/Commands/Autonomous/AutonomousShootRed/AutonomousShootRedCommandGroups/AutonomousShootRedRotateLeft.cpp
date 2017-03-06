@@ -7,5 +7,4 @@ AutonomousShootRedRotateLeft::AutonomousShootRedRotateLeft() {
 	frc::CommandGroup::AddParallel(new AutonomousShootRedRotateLeftHoldDoors(), 0.5);
 	frc::CommandGroup::AddParallel(new AutonomousShootRedRotateLeftSpinShooter(), 0.5);
 	frc::CommandGroup::AddParallel(new AutonomousShootRedRotateLeftRotateWheels(), 0.5);
-	SmartDashboard::PutNumber("Part: " , 2);
 }

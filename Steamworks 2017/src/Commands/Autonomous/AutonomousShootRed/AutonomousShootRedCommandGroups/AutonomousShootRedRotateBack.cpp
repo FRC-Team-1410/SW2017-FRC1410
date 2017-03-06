@@ -5,5 +5,4 @@
 AutonomousShootRedRotateBack::AutonomousShootRedRotateBack() {
 	frc::CommandGroup::AddParallel(new AutonomousShootRedRotateBackHoldDoors(), 1);
 	frc::CommandGroup::AddParallel(new AutonomousShootRedRotateBackRotateWheels(), 1);
-	SmartDashboard::PutNumber("Part: " , 5);
 }
