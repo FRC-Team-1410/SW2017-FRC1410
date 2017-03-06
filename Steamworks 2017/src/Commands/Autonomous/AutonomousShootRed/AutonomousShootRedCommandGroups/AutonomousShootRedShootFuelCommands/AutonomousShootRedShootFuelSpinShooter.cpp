@@ -13,7 +13,7 @@ void AutonomousShootRedShootFuelSpinShooter::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutonomousShootRedShootFuelSpinShooter::Execute() {
-	CommandBase::shooter.get()->SpinUpSpinner(1776);
+	CommandBase::shooter.get()->SpinUpSpinner(1850);
 }
 
 // Make this return true when this Command no longer needs to run execute()
