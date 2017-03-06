@@ -18,7 +18,7 @@ void AutonomousShootRedShootFuelSpinShooter::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousShootRedShootFuelSpinShooter::IsFinished() {
-	return timer->Get() >= 8;
+	return timer->Get() >= 8.5;
 }
 
 // Called once after isFinished returns true

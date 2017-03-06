@@ -18,7 +18,7 @@ void AutonomousShootRedDriveBackwardsHoldDoors::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousShootRedDriveBackwardsHoldDoors::IsFinished() {
-	return timer->Get() >= 3.5;
+	return timer->Get() >= 2;
 }
 
 // Called once after isFinished returns true

@@ -25,7 +25,7 @@ void AutonomousShootRedDriveBackwardsDriveWheels::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousShootRedDriveBackwardsDriveWheels::IsFinished() {
-	return CommandBase::drivebase.get()->ReturnDrivenInches(1.5) >= 100 || timer->Get() >= 3.5;
+	return CommandBase::drivebase.get()->ReturnDrivenInches(1.5) >= 100 || timer->Get() >= 2;
 }
 
 // Called once after isFinished returns true
