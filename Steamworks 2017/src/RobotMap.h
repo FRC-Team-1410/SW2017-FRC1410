@@ -1,21 +1,21 @@
 #ifndef ROBOTMAP_H
 #define ROBOTMAP_H
 
-/**
- * The RobotMap is a mapping from the ports sensors and actuators are wired into
- * to a variable name. This provides flexibility changing wiring, makes checking
- * the wiring easier and significantly reduces the number of magic numbers
- * floating around.
- */
+//Begin CANTalon CAN IDs below
+const int front_left_motor_id = 1;
+const int front_right_motor_id = 2;
+const int back_left_motor_id = 3;
+const int back_right_motor_id = 4;
 
-// For example to map the left and right motors, you could define the
-// following variables to use with your drivetrain subsystem.
-// constexpr int LEFTMOTOR = 1;
-// constexpr int RIGHTMOTOR = 2;
+const int climbing_motor_one_id = 5;
+const int climbing_motor_two_id = 7;
 
-// If you are using multiple modules, make sure to define both the port
-// number and the module. For example you with a rangefinder:
-// constexpr int RANGE_FINDER_PORT = 1;
-// constexpr int RANGE_FINDER_MODULE = 1;
+const int shooter_motor_one_id = 6;
+const int shooter_motor_two_id = 8;
+
+const int intake_motor_one_id = 9;
+const int intake_motor_two_id = 11;
+
+const int hopper_rotation_motor_id = 10;
 
 #endif  // ROBOTMAP_H

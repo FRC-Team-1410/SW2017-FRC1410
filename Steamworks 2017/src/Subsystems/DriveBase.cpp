@@ -35,10 +35,10 @@ void DriveBase::InitDefaultCommand() {
 void DriveBase::InitializeHardware(){
 	initialized = true;
 
-	front_left_motor = new CANTalon(1);
-	front_right_motor = new CANTalon(2);
-	back_left_motor = new CANTalon(3);
-	back_right_motor = new CANTalon(4);
+	front_left_motor = new CANTalon(front_left_motor_id);
+	front_right_motor = new CANTalon(front_right_motor_id);
+	back_left_motor = new CANTalon(back_left_motor_id);
+	back_right_motor = new CANTalon(back_right_motor_id);
 
 	//front_left_mini = new CANTalon(11);
 	//front_right_mini = new CANTalon(12);

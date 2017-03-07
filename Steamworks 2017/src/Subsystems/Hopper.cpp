@@ -19,7 +19,7 @@ void Hopper::InitDefaultCommand(){
 void Hopper::InitializeHardware(){
 	initialized = true;
 
-	motor = new CANTalon(10);
+	motor = new CANTalon(hopper_rotation_motor_id);
 }
 
 void Hopper::SpinMotor(float speed){

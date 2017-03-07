@@ -19,8 +19,8 @@ void Shooter::InitDefaultCommand() {
 void Shooter::InitializeHardware(){
 	initialized = true;
 
-	motor_one = new CANTalon(6);
-	motor_two = new CANTalon(8);
+	motor_one = new CANTalon(shooter_motor_one_id);
+	motor_two = new CANTalon(shooter_motor_two_id);
 
 	motor_one->SetFeedbackDevice(CANTalon::CtreMagEncoder_Relative);
 	//motor_two->SetFeedbackDevice(CANTalon::CtreMagEncoder_Relative);

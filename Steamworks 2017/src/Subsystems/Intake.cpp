@@ -21,8 +21,8 @@ void Intake::InitDefaultCommand() {
 void Intake::InitializeHardware(){
 	initialized = true;
 
-	intake_motor_one = new CANTalon(9);
-	intake_motor_two = new CANTalon(11);
+	intake_motor_one = new CANTalon(intake_motor_one_id);
+	intake_motor_two = new CANTalon(intake_motor_two_id);
 	//intake_motor->ConfigMaxOutputVoltage(12);
 }
 

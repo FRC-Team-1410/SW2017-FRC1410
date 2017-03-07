@@ -21,8 +21,8 @@ void Climber::InitDefaultCommand() {
 void Climber::InitializeHardware(){
 	initialized = true;
 
-	climbing_motor_one = new CANTalon(5);
-	climbing_motor_two = new CANTalon(7);
+	climbing_motor_one = new CANTalon(climbing_motor_one_id);
+	climbing_motor_two = new CANTalon(climbing_motor_two_id);
 }
 
 void Climber::RotateZeDrum(float speed){
