@@ -11,6 +11,7 @@ public:
 	void InitDefaultCommand() override;
 	void ActuateSolenoids(bool forward);
 	void FlapDoorsToHolderFastly(float magnitude);
+	void MoveTopFlap(float magnitude);
 
 private:
 	bool initialized;
@@ -19,6 +20,7 @@ private:
 	//frc::DoubleSolenoid * right_solenoid;
 	frc::Servo * left_servo;
 	frc::Servo * right_servo;
+	frc::Servo * top_servo;
 
 	void InitializeHardware();
 };

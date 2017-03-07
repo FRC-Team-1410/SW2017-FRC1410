@@ -22,6 +22,7 @@ private:
 	frc::JoystickButton * hopper_wash_laundry;
 	frc::JoystickButton * gear_servo_flippity_flop;
 	frc::JoystickButton * climber_rotate;
+	frc::JoystickButton * gear_open_top_flap;
 };
 
 #endif  // OI_H

@@ -11,6 +11,7 @@ AutonomousShootRedDriveBackwardsDriveWheels::AutonomousShootRedDriveBackwardsDri
 void AutonomousShootRedDriveBackwardsDriveWheels::Initialize() {
 	timer->Start();
 	CommandBase::drivebase.get()->ResetGyro();
+	CommandBase::drivebase.get()->ResetEncoders();
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -25,7 +26,7 @@ void AutonomousShootRedDriveBackwardsDriveWheels::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousShootRedDriveBackwardsDriveWheels::IsFinished() {
-	return CommandBase::drivebase.get()->ReturnDrivenInches(1.5) >= 100 || timer->Get() >= 2;
+	return CommandBase::drivebase.get()->ReturnDrivenInches(1.5) >= 50 || timer->Get() >= 1;
 }
 
 // Called once after isFinished returns true

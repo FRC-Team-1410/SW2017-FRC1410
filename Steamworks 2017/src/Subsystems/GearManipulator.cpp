@@ -13,6 +13,7 @@ GearManipulator::GearManipulator() : frc::Subsystem("GearManipulator") {
 
 	left_servo = 0;
 	right_servo = 0;
+	top_servo = 0;
 }
 
 void GearManipulator::InitDefaultCommand() {
@@ -30,6 +31,7 @@ void GearManipulator::InitializeHardware(){
 
 	left_servo = new Servo(0);
 	right_servo = new Servo(1);
+	top_servo = new Servo(2);
 }
 
 void GearManipulator::ActuateSolenoids(bool forward){
@@ -42,9 +44,9 @@ void GearManipulator::ActuateSolenoids(bool forward){
 		//right_solenoid->Set(DoubleSolenoid::Value::kForward);
 	}
 	else{
-			left_solenoid->Set(DoubleSolenoid::Value::kReverse);
-			//right_solenoid->Set(DoubleSolenoid::Value::kReverse);
-		}
+		left_solenoid->Set(DoubleSolenoid::Value::kReverse);
+		//right_solenoid->Set(DoubleSolenoid::Value::kReverse);
+	}
 }
 
 void GearManipulator::FlapDoorsToHolderFastly(float magnitude){
@@ -53,4 +55,11 @@ void GearManipulator::FlapDoorsToHolderFastly(float magnitude){
 	}
 	left_servo->Set(magnitude);
 	right_servo->Set(magnitude);
+}
+
+void GearManipulator::MoveTopFlap(float magnitude){
+	if(!initialized){
+		GearManipulator::InitializeHardware();
+	}
+	top_servo->Set(magnitude);
 }

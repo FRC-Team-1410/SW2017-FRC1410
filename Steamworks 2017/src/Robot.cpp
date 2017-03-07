@@ -5,6 +5,7 @@
 #include "Commands/Autonomous/AutonomousTestGyro/AutonomousTestGyro.h"
 #include "Commands/Autonomous/AutonomousShootRed/AutonomousShootRed.h"
 #include "Commands/Autonomous/AutonomousShootBlue/AutonomousShootBlue.h"
+#include "Commands/Autonomous/AutonomousScoreGear/AutonomousScoreGear.h"
 
 #include <memory>
 
@@ -27,6 +28,7 @@ void Robot::RobotInit() {
 	auto_choice.AddObject("Test Gyro", new AutonomousTestGyro());
 	auto_choice.AddObject("Shoot Red", new AutonomousShootRed());
 	auto_choice.AddObject("Shoot Blue", new AutonomousShootBlue());
+	auto_choice.AddObject("Score Gear", new AutonomousScoreGear());
 
 	frc::SmartDashboard::PutData("Auto Modes", &auto_choice);
 	CommandBase::oi.get()->InitializeHardware();
@@ -87,6 +89,9 @@ void Robot::AutonomousInit() {
 		auto_command.reset(new AutonomousShootBlue());
 	}
 
+	else if(autoSelected == "Score Gear"){
+		auto_command.reset(new AutonomousScoreGear());
+	}
 	else {
 		auto_command.reset(new AutonomousTestShoot());
 	}

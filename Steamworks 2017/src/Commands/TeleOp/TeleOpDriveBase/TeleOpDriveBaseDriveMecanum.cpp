@@ -13,8 +13,8 @@ void TeleOpDriveBaseDriveMecanum::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void TeleOpDriveBaseDriveMecanum::Execute() {
-	//CommandBase::drivebase.get()->DriveMecanum(CommandBase::oi.get()->ReturnDriverAxis(0), CommandBase::oi.get()->ReturnDriverAxis(1), CommandBase::oi.get()->ReturnDriverAxis(4));
-	CommandBase::drivebase.get()->DriveMecanum(CommandBase::oi.get()->ReturnOperatorAxis(0), CommandBase::oi.get()->ReturnOperatorAxis(1), CommandBase::oi.get()->ReturnOperatorAxis(4));
+	CommandBase::drivebase.get()->DriveMecanum(CommandBase::oi.get()->ReturnDriverAxis(0), CommandBase::oi.get()->ReturnDriverAxis(1), CommandBase::oi.get()->ReturnDriverAxis(4));
+	//CommandBase::drivebase.get()->DriveMecanum(CommandBase::oi.get()->ReturnOperatorAxis(0), CommandBase::oi.get()->ReturnOperatorAxis(1), CommandBase::oi.get()->ReturnOperatorAxis(4));
 	CommandBase::drivebase.get()->PutNumbersFromNavXMXP();
 	CommandBase::drivebase.get()->ReturnDrivenTicks();
 	CommandBase::drivebase.get()->ReturnDrivenInches(1.5);
