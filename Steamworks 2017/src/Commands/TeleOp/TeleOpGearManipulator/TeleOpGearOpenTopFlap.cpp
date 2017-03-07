@@ -10,7 +10,7 @@ TeleOpGearOpenTopFlap::TeleOpGearOpenTopFlap() {
 void TeleOpGearOpenTopFlap::Initialize() {
 	move_forward = !move_forward;
 	if(move_forward){
-			CommandBase::gearmanipulator.get()->MoveTopFlap(0.5);
+			CommandBase::gearmanipulator.get()->MoveTopFlap(0.75);
 			//SmartDashboard::PutNumber("Door Position", 0.5);
 		}
 		else{
@@ -22,7 +22,7 @@ void TeleOpGearOpenTopFlap::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void TeleOpGearOpenTopFlap::Execute() {
 	if(move_forward){
-		CommandBase::gearmanipulator.get()->MoveTopFlap(0.5);
+		CommandBase::gearmanipulator.get()->MoveTopFlap(0.75);
 		//SmartDashboard::PutNumber("Door Position", 0.5);
 	}
 	else{
@@ -39,7 +39,7 @@ bool TeleOpGearOpenTopFlap::IsFinished() {
 // Called once after isFinished returns true
 void TeleOpGearOpenTopFlap::End() {
 	if(move_forward){
-			CommandBase::gearmanipulator.get()->MoveTopFlap(0.5);
+			CommandBase::gearmanipulator.get()->MoveTopFlap(0.75);
 			//SmartDashboard::PutNumber("Door Position", 0.5);
 		}
 		else{
