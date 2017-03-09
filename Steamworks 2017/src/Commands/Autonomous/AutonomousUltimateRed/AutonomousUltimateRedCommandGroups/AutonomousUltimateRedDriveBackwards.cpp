@@ -1,8 +1,8 @@
-#include <Commands/Autonomous/AutonomousUltimateRed/AutonomousUltimateRedCommandGroups/AutonomousUltimateRedDriveBackwards.h>
-#include "AutonomousShootRedDriveBackwardsCommands/AutonomousShootRedDriveBackwardsHoldDoors.h"
-#include "AutonomousShootRedDriveBackwardsCommands/AutonomousShootRedDriveBackwardsDriveWheels.h"
+#include "AutonomousUltimateRedDriveBackwards.h"
+#include "AutonomousUltimateRedDriveBackwardsCommands/AutonomousUltimateRedDriveBackwardsHoldDoors.h"
+#include "AutonomousUltimateRedDriveBackwardsCommands/AutonomousUltimateRedDriveBackwardsDriveWheels.h"
 
-AutonomousShootRedDriveBackwards::AutonomousShootRedDriveBackwards() {
-	frc::CommandGroup::AddParallel(new AutonomousShootRedDriveBackwardsHoldDoors(), 2);
-	frc::CommandGroup::AddParallel(new AutonomousShootRedDriveBackwardsDriveWheels(), 2);
+AutonomousUltimateRedDriveBackwards::AutonomousUltimateRedDriveBackwards() {
+	frc::CommandGroup::AddParallel(new AutonomousUltimateRedDriveBackwardsHoldDoors(), 1.2);
+	frc::CommandGroup::AddParallel(new AutonomousUltimateRedDriveBackwardsDriveWheels(), 1.2);
 }

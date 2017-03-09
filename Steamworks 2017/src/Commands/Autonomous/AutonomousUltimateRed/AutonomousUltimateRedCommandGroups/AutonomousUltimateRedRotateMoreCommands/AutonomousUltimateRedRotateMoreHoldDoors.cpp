@@ -18,7 +18,7 @@ void AutonomousUltimateRedRotateMoreHoldDoors::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousUltimateRedRotateMoreHoldDoors::IsFinished() {
-	return timer->Get() >= 1;
+	return CommandBase::drivebase.get()->ReturnAngle() >= 26 || timer->Get() >= 0.5;
 }
 
 // Called once after isFinished returns true

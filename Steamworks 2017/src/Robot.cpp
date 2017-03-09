@@ -6,6 +6,7 @@
 #include "Commands/Autonomous/AutonomousShootRed/AutonomousShootRed.h"
 #include "Commands/Autonomous/AutonomousShootBlue/AutonomousShootBlue.h"
 #include "Commands/Autonomous/AutonomousScoreGear/AutonomousScoreGear.h"
+#include "Commands/Autonomous/AutonomousUltimateRed/AutonomousUltimateRed.h"
 
 #include <memory>
 
@@ -29,6 +30,7 @@ void Robot::RobotInit() {
 	auto_choice.AddObject("Shoot Red", new AutonomousShootRed());
 	auto_choice.AddObject("Shoot Blue", new AutonomousShootBlue());
 	auto_choice.AddObject("Score Gear", new AutonomousScoreGear());
+	auto_choice.AddObject("Bippity Boppipty Give Me The Zoppity (Red)", new AutonomousUltimateRed());
 
 	frc::SmartDashboard::PutData("Auto Modes", &auto_choice);
 	CommandBase::oi.get()->InitializeHardware();
@@ -92,6 +94,11 @@ void Robot::AutonomousInit() {
 	else if(autoSelected == "Score Gear"){
 		auto_command.reset(new AutonomousScoreGear());
 	}
+
+	else if(autoSelected == "Bippity Boppity Give Me The Zoppity (Red)"){
+		auto_command.reset(new AutonomousUltimateRed());
+	}
+
 	else {
 		auto_command.reset(new AutonomousTestShoot());
 	}

@@ -3,6 +3,6 @@
 #include "AutonomousUltimateRedObtainSpeedCommands/AutonomousUltimateRedObtainSpeedSpinShooter.h"
 
 AutonomousUltimateRedObtainSpeed::AutonomousUltimateRedObtainSpeed() {
-	frc::CommandGroup::AddParallel(new AutonomousUltimateRedObtainSpeedHoldDoors());
-	frc::CommandGroup::AddParallel(new AutonomousUltimateRedObtainSpeedSpinShooter());
+	frc::CommandGroup::AddParallel(new AutonomousUltimateRedObtainSpeedHoldDoors(), 1.0);
+	frc::CommandGroup::AddParallel(new AutonomousUltimateRedObtainSpeedSpinShooter(), 1.0);
 }

@@ -18,7 +18,7 @@ void AutonomousUltimateRedStrafeLeftHoldDoors::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousUltimateRedStrafeLeftHoldDoors::IsFinished() {
-	return timer->Get() >= 1;
+	return timer->Get() >= 0.7;
 }
 
 // Called once after isFinished returns true

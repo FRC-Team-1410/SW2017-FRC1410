@@ -4,7 +4,7 @@
 #include "AutonomousUltimateRedRotateLeftCommands/AutonomousUltimateRedRotateLeftRotateWheels.h"
 
 AutonomousUltimateRedRotateLeft::AutonomousUltimateRedRotateLeft() {
-	frc::CommandGroup::AddParallel(new AutonomousUltimateRedRotateLeftHoldDoors());
-	frc::CommandGroup::AddParallel(new AutonomousUltimateRedRotateLeftSpinShooter());
-	frc::CommandGroup::AddParallel(new AutonomousUltimateRedRotateLeftRotateWheels());
+	frc::CommandGroup::AddParallel(new AutonomousUltimateRedRotateLeftHoldDoors(), 0.2);
+	frc::CommandGroup::AddParallel(new AutonomousUltimateRedRotateLeftSpinShooter(), 0.2);
+	frc::CommandGroup::AddParallel(new AutonomousUltimateRedRotateLeftRotateWheels(), 0.2);
 }

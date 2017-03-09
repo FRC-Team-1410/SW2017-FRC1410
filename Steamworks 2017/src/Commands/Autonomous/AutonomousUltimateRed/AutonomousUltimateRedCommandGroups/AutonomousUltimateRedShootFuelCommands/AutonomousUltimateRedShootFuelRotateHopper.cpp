@@ -18,7 +18,7 @@ void AutonomousUltimateRedShootFuelRotateHopper::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousUltimateRedShootFuelRotateHopper::IsFinished() {
-	return timer->Get() >= 8.5;
+	return timer->Get() >= 6.0;
 }
 
 // Called once after isFinished returns true

@@ -3,6 +3,6 @@
 #include "AutonomousUltimateRedRotateMoreCommands/AutonomousUltimateRedRotateMoreRotateWheels.h"
 
 AutonomousUltimateRedRotateMore::AutonomousUltimateRedRotateMore() {
-	frc::CommandGroup::AddParallel(new AutonomousUltimateRedRotateMoreHoldDoors());
-	frc::CommandGroup::AddParallel(new AutonomousUltimateRedRotateMoreRotateWheels());
+	frc::CommandGroup::AddParallel(new AutonomousUltimateRedRotateMoreHoldDoors(), 0.5);
+	frc::CommandGroup::AddParallel(new AutonomousUltimateRedRotateMoreRotateWheels(), 0.5);
 }

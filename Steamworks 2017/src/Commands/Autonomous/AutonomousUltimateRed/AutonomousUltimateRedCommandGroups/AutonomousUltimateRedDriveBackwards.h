@@ -6,8 +6,7 @@
 
 class AutonomousUltimateRedDriveBackwards : public frc::CommandGroup {
 public:
-	AutonomousShootRedDriveBackwards();
+	AutonomousUltimateRedDriveBackwards();
 };
 
-#endif  // AutonomousShootRedDriveBackwards_H
-=
+#endif  // AutonomousUltimateRedDriveBackwards_H

@@ -4,7 +4,7 @@
 #include "AutonomousUltimateRedShootFuelCommands/AutonomousUltimateRedShootFuelRotateHopper.h"
 
 AutonomousUltimateRedShootFuel::AutonomousUltimateRedShootFuel() {
-	frc::CommandGroup::AddParallel(new AutonomousUltimateRedShootFuelHoldDoors());
-	frc::CommandGroup::AddParallel(new AutonomousUltimateRedShootFuelSpinShooter());
-	frc::CommandGroup::AddParallel(new AutonomousUltimateRedShootFuelRotateHopper());
+	frc::CommandGroup::AddParallel(new AutonomousUltimateRedShootFuelHoldDoors(), 6.0);
+	frc::CommandGroup::AddParallel(new AutonomousUltimateRedShootFuelSpinShooter(), 6.0);
+	frc::CommandGroup::AddParallel(new AutonomousUltimateRedShootFuelRotateHopper(), 6.0);
 }

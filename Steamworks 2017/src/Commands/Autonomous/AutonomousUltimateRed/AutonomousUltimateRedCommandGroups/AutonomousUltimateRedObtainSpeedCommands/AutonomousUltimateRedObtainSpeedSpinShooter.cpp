@@ -18,7 +18,7 @@ void AutonomousUltimateRedObtainSpeedSpinShooter::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousUltimateRedObtainSpeedSpinShooter::IsFinished() {
-	return CommandBase::shooter.get()->ReturnShooterSpeed() >= 21500 || timer->Get() >= 2;
+	return CommandBase::shooter.get()->ReturnShooterSpeed() >= 21500 || timer->Get() >= 1.0;
 }
 
 // Called once after isFinished returns true
