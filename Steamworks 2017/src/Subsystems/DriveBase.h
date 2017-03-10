@@ -46,6 +46,8 @@ private:
 
 	AHRS * navigation;
 
+	frc::Relay * lights;
+
 	void InitializeHardware();
 };
 

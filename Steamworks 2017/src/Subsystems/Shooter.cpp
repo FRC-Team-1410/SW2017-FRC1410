@@ -31,7 +31,7 @@ void Shooter::InitializeHardware(){
 	motor_one->SetSensorDirection(true);
 	//motor_two->SetSensorDirection(true);
 
-	motor_one->SetVoltageRampRate(12);
+	//motor_one->SetVoltageRampRate(12);
 	//motor_one->SetVoltageRampRate(12);
 
 	motor_one->ConfigNominalOutputVoltage(+0.0f, -0.0f);
@@ -50,6 +50,7 @@ void Shooter::SpinUpSpinner(float speed){
 	}
 	motor_one->Set(speed);
 	motor_two->Set(6);
+	SmartDashboard::PutNumber("SHOOTER SPEED", motor_one->GetEncVel());
 
 	//SmartDashboard::PutNumber("Shooter Motor 1 Output Voltage (~6.9)", motor_one->GetOutputVoltage());
 	//SmartDashboard::PutNumber("Shooter Motor 2 Output Voltage (~6.9)", motor_two->GetOutputVoltage());

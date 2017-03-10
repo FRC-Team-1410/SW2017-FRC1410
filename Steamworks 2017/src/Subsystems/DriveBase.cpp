@@ -23,6 +23,8 @@ DriveBase::DriveBase() : frc::Subsystem("DriveBase") {
 	//mini_drive = 0;
 
 	navigation = 0;
+
+	lights = 0;
 }
 
 void DriveBase::InitDefaultCommand() {
@@ -71,6 +73,8 @@ void DriveBase::InitializeHardware(){
 	navigation = new AHRS(SPI::Port::kMXP);
 
 	DriveBase::ResetEncoders();
+
+	lights = new frc::Relay(2);
 }
 
 void DriveBase::DriveMecanum(double x_magnitude, double y_magnitude, double rotation_magnitude){
@@ -78,6 +82,7 @@ void DriveBase::DriveMecanum(double x_magnitude, double y_magnitude, double rota
 		DriveBase::InitializeHardware();
 	}
 	DriveBase::full_drive->MecanumDrive_Cartesian(x_magnitude, y_magnitude, rotation_magnitude);
+	lights->Set(frc::Relay::Value::kForward);
 	//DriveBase::mini_drive->MecanumDrive_Cartesian(x_magnitude, y_magnitude, rotation_magnitude);
 }
 

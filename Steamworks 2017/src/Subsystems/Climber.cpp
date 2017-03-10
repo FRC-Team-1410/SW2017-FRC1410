@@ -28,9 +28,8 @@ void Climber::InitializeHardware(){
 void Climber::RotateZeDrum(float speed){
 	climbing_motor_one->Set(speed);
 	climbing_motor_two->Set(speed);
-
-	//SmartDashboard::PutNumber("CLIMBING VOLTAGE DRAW 1", climbing_motor_one->GetOutputVoltage());
-	//SmartDashboard::PutNumber("CLIMBING CURRENT DRAW 1", climbing_motor_one->GetOutputCurrent());
-	//SmartDashboard::PutNumber("CLIMBING VOLTAGE DRAW 2", climbing_motor_two->GetOutputVoltage());
-	//SmartDashboard::PutNumber("CLIMBING CURRENT DRAW 2", climbing_motor_two->GetOutputCurrent());
+	SmartDashboard::PutNumber("CLIMBING VOLTAGE DRAW 1", climbing_motor_one->GetOutputVoltage());
+	SmartDashboard::PutNumber("CLIMBING CURRENT DRAW 1", climbing_motor_one->GetOutputCurrent());
+	SmartDashboard::PutNumber("CLIMBING VOLTAGE DRAW 2", climbing_motor_two->GetOutputVoltage());
+	SmartDashboard::PutNumber("CLIMBING CURRENT DRAW 2", climbing_motor_two->GetOutputCurrent());
 }

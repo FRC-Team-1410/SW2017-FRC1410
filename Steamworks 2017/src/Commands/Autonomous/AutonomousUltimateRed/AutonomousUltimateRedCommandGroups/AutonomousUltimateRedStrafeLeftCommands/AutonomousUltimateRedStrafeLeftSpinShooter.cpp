@@ -1,5 +1,6 @@
 #include "AutonomousUltimateRedStrafeLeftSpinShooter.h"
 #include "../../../../../CommandBase.h"
+#include "../../../../../RobotMap.h"
 
 AutonomousUltimateRedStrafeLeftSpinShooter::AutonomousUltimateRedStrafeLeftSpinShooter() {
 	Requires(CommandBase::shooter.get());
@@ -13,7 +14,7 @@ void AutonomousUltimateRedStrafeLeftSpinShooter::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutonomousUltimateRedStrafeLeftSpinShooter::Execute() {
-	CommandBase::shooter.get()->SpinUpSpinner(1850);
+	CommandBase::shooter.get()->SpinUpSpinner(shooter_set_speed);
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -23,7 +24,7 @@ bool AutonomousUltimateRedStrafeLeftSpinShooter::IsFinished() {
 
 // Called once after isFinished returns true
 void AutonomousUltimateRedStrafeLeftSpinShooter::End() {
-	CommandBase::shooter.get()->SpinUpSpinner(1850);
+	CommandBase::shooter.get()->SpinUpSpinner(shooter_set_speed);
 }
 
 // Called when another command which requires one or more of the same

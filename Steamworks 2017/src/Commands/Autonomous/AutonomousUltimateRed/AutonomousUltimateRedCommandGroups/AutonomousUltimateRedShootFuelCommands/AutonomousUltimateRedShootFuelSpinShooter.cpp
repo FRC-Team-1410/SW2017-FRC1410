@@ -1,5 +1,6 @@
-#include <Commands/Autonomous/AutonomousUltimateRed/AutonomousUltimateRedCommandGroups/AutonomousUltimateRedShootFuelCommands/AutonomousUltimateRedShootFuelSpinShooter.h>
+#include "AutonomousUltimateRedShootFuelSpinShooter.h"
 #include "../../../../../CommandBase.h"
+#include "../../../../../RobotMap.h"
 
 AutonomousUltimateRedShootFuelSpinShooter::AutonomousUltimateRedShootFuelSpinShooter() {
 	Requires(CommandBase::shooter.get());
@@ -13,7 +14,7 @@ void AutonomousUltimateRedShootFuelSpinShooter::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutonomousUltimateRedShootFuelSpinShooter::Execute() {
-	CommandBase::shooter.get()->SpinUpSpinner(1850);
+	CommandBase::shooter.get()->SpinUpSpinner(shooter_set_speed);
 }
 
 // Make this return true when this Command no longer needs to run execute()
