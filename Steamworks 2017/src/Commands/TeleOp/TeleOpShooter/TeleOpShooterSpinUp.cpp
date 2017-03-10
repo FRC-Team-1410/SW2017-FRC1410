@@ -1,5 +1,6 @@
 #include "TeleOpShooterSpinUp.h"
 #include "../../../CommandBase.h"
+#include "../../../RobotMap.h"
 
 TeleOpShooterSpinUp::TeleOpShooterSpinUp() {
 	Requires(CommandBase::shooter.get());
