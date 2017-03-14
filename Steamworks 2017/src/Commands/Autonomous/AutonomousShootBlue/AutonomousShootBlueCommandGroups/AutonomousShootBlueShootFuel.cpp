@@ -4,7 +4,7 @@
 #include "AutonomousShootBlueShootFuelCommands/AutonomousShootBlueShootFuelRotateHopper.h"
 
 AutonomousShootBlueShootFuel::AutonomousShootBlueShootFuel() {
-	frc::CommandGroup::AddParallel(new AutonomousShootBlueShootFuelHoldDoors(), 8.5);
-	frc::CommandGroup::AddParallel(new AutonomousShootBlueShootFuelSpinShooter(), 8.5);
-	frc::CommandGroup::AddParallel(new AutonomousShootBlueShootFuelRotateHopper(), 8.5);
+	frc::CommandGroup::AddParallel(new AutonomousShootBlueShootFuelHoldDoors(), 6.5);
+	frc::CommandGroup::AddParallel(new AutonomousShootBlueShootFuelSpinShooter(), 6.5);
+	frc::CommandGroup::AddParallel(new AutonomousShootBlueShootFuelRotateHopper(), 6.5);
 }

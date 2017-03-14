@@ -2,5 +2,5 @@
 #include "AutonomousScoreGearDriveBackwardCommands/AutonomousScoreGearDriveBackwardDriveWheels.h"
 
 AutonomousScoreGearDriveBackward::AutonomousScoreGearDriveBackward() {
-	frc::CommandGroup::AddParallel(new AutonomousScoreGearDriveBackwardDriveWheels(), 2.5);
+	frc::CommandGroup::AddParallel(new AutonomousScoreGearDriveBackwardDriveWheels(), 1.5);
 }

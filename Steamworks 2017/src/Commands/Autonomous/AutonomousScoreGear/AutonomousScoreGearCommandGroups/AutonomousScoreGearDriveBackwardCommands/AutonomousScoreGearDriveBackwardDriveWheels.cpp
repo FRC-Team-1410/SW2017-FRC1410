@@ -23,7 +23,7 @@ void AutonomousScoreGearDriveBackwardDriveWheels::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousScoreGearDriveBackwardDriveWheels::IsFinished() {
-	return CommandBase::drivebase.get()->ReturnDrivenInches(1.5) <= -40 || timer->Get() >= 2.5;
+	return timer->Get() >= 1.5;
 }
 
 // Called once after isFinished returns true

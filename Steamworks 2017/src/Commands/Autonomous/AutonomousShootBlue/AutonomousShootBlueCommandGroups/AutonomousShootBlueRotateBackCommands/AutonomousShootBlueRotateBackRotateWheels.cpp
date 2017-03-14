@@ -20,7 +20,7 @@ void AutonomousShootBlueRotateBackRotateWheels::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousShootBlueRotateBackRotateWheels::IsFinished() {
-	return CommandBase::drivebase.get()->ReturnAngle() <= -10 || timer->Get() >= 1;
+	return CommandBase::drivebase.get()->ReturnAngle() <= -20 || timer->Get() >= 1;
 }
 
 // Called once after isFinished returns true

@@ -18,7 +18,7 @@ void AutonomousShootBlueRotateBackHoldDoors::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousShootBlueRotateBackHoldDoors::IsFinished() {
-	return timer->Get() >= 1;
+	return CommandBase::drivebase.get()->ReturnAngle() <= -20 || timer->Get() >= 1;
 }
 
 // Called once after isFinished returns true

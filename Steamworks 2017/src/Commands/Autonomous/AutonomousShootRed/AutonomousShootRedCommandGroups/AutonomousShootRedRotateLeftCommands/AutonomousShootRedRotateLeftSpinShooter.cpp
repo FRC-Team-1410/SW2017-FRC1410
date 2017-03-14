@@ -19,7 +19,7 @@ void AutonomousShootRedRotateLeftSpinShooter::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousShootRedRotateLeftSpinShooter::IsFinished() {
-	return timer->Get() >= 0.5;
+	return CommandBase::drivebase.get()->ReturnAngle() >= 5 || timer->Get() >= 0.5;
 }
 
 // Called once after isFinished returns true

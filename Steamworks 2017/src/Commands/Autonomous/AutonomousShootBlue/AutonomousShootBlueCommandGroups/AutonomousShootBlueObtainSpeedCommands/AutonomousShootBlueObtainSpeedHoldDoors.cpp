@@ -1,5 +1,6 @@
 #include "AutonomousShootBlueObtainSpeedHoldDoors.h"
 #include "../../../../../CommandBase.h"
+#include "../../../../../RobotMap.h"
 
 AutonomousShootBlueObtainSpeedHoldDoors::AutonomousShootBlueObtainSpeedHoldDoors() {
 	Requires(CommandBase::gearmanipulator.get());
@@ -18,7 +19,7 @@ void AutonomousShootBlueObtainSpeedHoldDoors::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousShootBlueObtainSpeedHoldDoors::IsFinished() {
-	return timer->Get() >= 2.5;
+	return CommandBase::shooter.get()->ReturnShooterSpeed() >= shooter_target_speed || timer->Get() >= 2.5;
 }
 
 // Called once after isFinished returns true

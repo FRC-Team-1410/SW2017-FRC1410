@@ -15,12 +15,12 @@ void AutonomousShootBlueRotateLeftRotateWheels::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutonomousShootBlueRotateLeftRotateWheels::Execute() {
-	CommandBase::drivebase.get()->DriveMecanum(0, 0, -0.5);
+	CommandBase::drivebase.get()->DriveMecanum(0, 0, 0.5);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousShootBlueRotateLeftRotateWheels::IsFinished() {
-	return CommandBase::drivebase.get()->ReturnAngle() <= -10 || timer->Get() >= 0.5;
+	return CommandBase::drivebase.get()->ReturnAngle() >= 5 || timer->Get() >= 0.5;
 }
 
 // Called once after isFinished returns true

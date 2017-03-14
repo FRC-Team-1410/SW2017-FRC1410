@@ -14,7 +14,7 @@ void AutonomousScoreGearCloseDoorsRotateHinges::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutonomousScoreGearCloseDoorsRotateHinges::Execute() {
-	CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0.5);
+	CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0.6);
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -24,7 +24,7 @@ bool AutonomousScoreGearCloseDoorsRotateHinges::IsFinished() {
 
 // Called once after isFinished returns true
 void AutonomousScoreGearCloseDoorsRotateHinges::End() {
-	CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0.5);
+	CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0.6);
 }
 
 // Called when another command which requires one or more of the same

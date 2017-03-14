@@ -17,17 +17,12 @@ void AutonomousShootBlueDriveBackwardsDriveWheels::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutonomousShootBlueDriveBackwardsDriveWheels::Execute() {
-	if(CommandBase::drivebase.get()->ReturnAngle() < 10){
-		CommandBase::drivebase.get()->DriveMecanum(0, 0.5, 0.1);
-	}
-	else{
 		CommandBase::drivebase.get()->DriveMecanum(0, 0.5, 0);
-	}
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousShootBlueDriveBackwardsDriveWheels::IsFinished() {
-	return CommandBase::drivebase.get()->ReturnDrivenInches(1.5) >= 45 || timer->Get() >= 1;
+	return CommandBase::drivebase.get()->ReturnDrivenInches(1.5) >= 60 || timer->Get() >= 2;
 }
 
 // Called once after isFinished returns true

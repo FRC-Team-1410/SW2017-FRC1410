@@ -18,7 +18,7 @@ void AutonomousShootBlueDriveBackwardsHoldDoors::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousShootBlueDriveBackwardsHoldDoors::IsFinished() {
-	return timer->Get() >= 2;
+	return CommandBase::drivebase.get()->ReturnDrivenInches(1.5) >= 60 || timer->Get() >= 2;
 }
 
 // Called once after isFinished returns true

@@ -10,7 +10,7 @@ TeleOpGearFlipFlopTheFloppyDoors::TeleOpGearFlipFlopTheFloppyDoors() {
 void TeleOpGearFlipFlopTheFloppyDoors::Initialize() {
 	move_forward = !move_forward;
 	if(move_forward){
-			CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0.5);
+			CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0.6);
 			//SmartDashboard::PutNumber("Door Position", 0.5);
 		}
 		else{
@@ -22,7 +22,7 @@ void TeleOpGearFlipFlopTheFloppyDoors::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void TeleOpGearFlipFlopTheFloppyDoors::Execute() {
 	if(move_forward){
-		CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0.5);
+		CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0.6);
 		//SmartDashboard::PutNumber("Door Position", 0.5);
 	}
 	else{
@@ -39,7 +39,7 @@ bool TeleOpGearFlipFlopTheFloppyDoors::IsFinished() {
 // Called once after isFinished returns true
 void TeleOpGearFlipFlopTheFloppyDoors::End() {
 	if(move_forward){
-			CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0.5);
+			CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0.6);
 			//SmartDashboard::PutNumber("Door Position", 0.5);
 		}
 		else{

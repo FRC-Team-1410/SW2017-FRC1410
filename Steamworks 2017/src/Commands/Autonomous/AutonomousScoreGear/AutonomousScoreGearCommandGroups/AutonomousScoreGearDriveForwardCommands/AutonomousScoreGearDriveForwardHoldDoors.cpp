@@ -14,17 +14,17 @@ void AutonomousScoreGearDriveForwardHoldDoors::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutonomousScoreGearDriveForwardHoldDoors::Execute() {
-	CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0.5);
+	CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0.6);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutonomousScoreGearDriveForwardHoldDoors::IsFinished() {
-	return timer->Get() >= 4;
+	return timer->Get() >= 3.75;
 }
 
 // Called once after isFinished returns true
 void AutonomousScoreGearDriveForwardHoldDoors::End() {
-	CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0.5);
+	CommandBase::gearmanipulator.get()->FlapDoorsToHolderFastly(0.6);
 }
 
 // Called when another command which requires one or more of the same

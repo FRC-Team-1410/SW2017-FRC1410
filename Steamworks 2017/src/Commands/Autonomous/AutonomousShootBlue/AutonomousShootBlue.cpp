@@ -9,7 +9,7 @@
 AutonomousShootBlue::AutonomousShootBlue() {
 	frc::CommandGroup::AddSequential(new AutonomousShootBlueRotateLeft(), 0.5);
 	frc::CommandGroup::AddSequential(new AutonomousShootBlueObtainSpeed(), 2.5);
-	frc::CommandGroup::AddSequential(new AutonomousShootBlueShootFuel(), 8.5);
+	frc::CommandGroup::AddSequential(new AutonomousShootBlueShootFuel(), 6.5);
 	frc::CommandGroup::AddSequential(new AutonomousShootBlueRotateBack(), 1);
 	frc::CommandGroup::AddSequential(new AutonomousShootBlueDriveBackwards(), 2);
 }
