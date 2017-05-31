@@ -12,7 +12,7 @@ std::unique_ptr<DriveBase> CommandBase::drivebase = std::make_unique<DriveBase>(
 std::unique_ptr<GearManipulator> CommandBase::gearmanipulator = std::make_unique<GearManipulator>();
 std::unique_ptr<Climber> CommandBase::climber = std::make_unique<Climber>();
 std::unique_ptr<Shooter> CommandBase::shooter = std::make_unique<Shooter>();
-std::unique_ptr<Intake> CommandBase::intake = std::make_unique<Intake>();
+std::unique_ptr<GearIntake> CommandBase::gearintake = std::make_unique<GearIntake>();
 std::unique_ptr<Hopper> CommandBase::hopper = std::make_unique<Hopper>();
 
 CommandBase::CommandBase(const std::string &name) : frc::Command(name) {

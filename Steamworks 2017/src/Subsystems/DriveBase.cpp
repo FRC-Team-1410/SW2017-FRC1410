@@ -267,3 +267,10 @@ void DriveBase::PutNumbersFromNavXMXP(){
 void DriveBase::ResetGyro(){
 	navigation->Reset();
 }
+
+void DriveBase::DriveTank(float left_speed, float right_speed){
+	front_left_motor->Set(left_speed);
+	front_right_motor->Set(right_speed);
+	back_left_motor->Set(left_speed);
+	back_right_motor->Set(right_speed);
+}

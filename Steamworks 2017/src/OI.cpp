@@ -1,4 +1,3 @@
-#include <Commands/TeleOp/TeleOpIntake/TeleOpIntakeObtainTallywags.h>
 #include "OI.h"
 
 #include <WPILib.h>
@@ -9,6 +8,7 @@
 #include "Commands/TeleOp/TeleOpGearManipulator/TeleOpGearFlipFlopTheFloppyDoors.h"
 #include "Commands/TeleOp/TeleOpClimber/TeleOpClimberDoTheClimbyClimby.h"
 #include "Commands/TeleOp/TeleOpGearManipulator/TeleOpGearOpenTopFlap.h"
+#include "Commands/TeleOp/TeleOpGearIntake/TeleOpGearIntakeSpinWheels.h"
 
 const char inputShape[255] = {
 			0,1,3,4,5,6,7,9,10,11,12,13,15,16,17,18,19,21,22,23,24,25,27,28,29,30,31,
@@ -44,14 +44,14 @@ OI::OI() {
 	//operator_controller = new frc::XboxController(1);
 	driver_controller = 0;
 	operator_controller = 0;
-
 	gear_solenoid_button = 0;
 	shooter_spin_button = 0;
-	intake_obtain_balls = 0;
 	hopper_wash_laundry = 0;
 	gear_servo_flippity_flop = 0;
 	climber_rotate = 0;
 	gear_open_top_flap = 0;
+	gear_intake_rollers_inwards = 0;
+	gear_intake_rollers_outwards = 0;
 }
 
 double OI::ReturnDriverAxis(int axis){
@@ -69,20 +69,21 @@ void OI::InitializeHardware(){
 
 		//gear_solenoid_button = new frc::JoystickButton(operator_controller, 1);
 		shooter_spin_button = new frc::JoystickButton(operator_controller, 2);
-		intake_obtain_balls = new frc::JoystickButton(operator_controller, 3);
 		hopper_wash_laundry = new frc::JoystickButton(operator_controller, 4);
 		gear_servo_flippity_flop = new frc::JoystickButton(operator_controller, 5);
 		climber_rotate = new frc::JoystickButton(operator_controller, 6);
 		gear_open_top_flap = new frc::JoystickButton(operator_controller, 1);
+		gear_intake_rollers_inwards = new frc::JoystickButton(operator_controller, 7);
+		gear_intake_rollers_outwards = new frc::JoystickButton(operator_controller, 8);
 
 		//gear_solenoid_button->ToggleWhenPressed(new TeleOpGearManipulatorActuateSolenoids());
 		shooter_spin_button->ToggleWhenPressed(new TeleOpShooterSpinUp());
-		intake_obtain_balls->ToggleWhenPressed(new TeleOpIntakeObtainTallywags());
 		hopper_wash_laundry->ToggleWhenPressed(new TeleOpHopperDoTheLaundry());
 		gear_servo_flippity_flop->ToggleWhenPressed(new TeleOpGearFlipFlopTheFloppyDoors());
 		climber_rotate->ToggleWhenPressed(new TeleOpClimberDoTheClimbyClimby());
 		gear_open_top_flap->ToggleWhenPressed(new TeleOpGearOpenTopFlap());
-
+		gear_intake_rollers_inwards->ToggleWhenPressed(new TeleOpGearIntakeSpinWheels(1));
+		gear_intake_rollers_outwards->ToggleWhenPressed(new TeleOpGearIntakeSpinWheels(-1));
 		//gear_servo_flippity_flop->WhenInactive(new TeleOpGearManipulatorActuateSolenoids());
 	}
 }

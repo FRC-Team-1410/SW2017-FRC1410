@@ -18,11 +18,12 @@ private:
 
 	frc::JoystickButton * gear_solenoid_button;
 	frc::JoystickButton * shooter_spin_button;
-	frc::JoystickButton * intake_obtain_balls;
 	frc::JoystickButton * hopper_wash_laundry;
 	frc::JoystickButton * gear_servo_flippity_flop;
 	frc::JoystickButton * climber_rotate;
 	frc::JoystickButton * gear_open_top_flap;
+	frc::JoystickButton * gear_intake_rollers_inwards;
+	frc::JoystickButton * gear_intake_rollers_outwards;
 };
 
 #endif  // OI_H

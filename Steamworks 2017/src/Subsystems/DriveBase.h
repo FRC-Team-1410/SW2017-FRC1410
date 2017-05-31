@@ -28,6 +28,8 @@ public:
 
 	void ResetGyro();
 
+	void DriveTank(float left_speed, float right_speed);
+
 private:
 	bool initialized;
 

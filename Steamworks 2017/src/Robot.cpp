@@ -22,14 +22,14 @@
 #include <WPILib.h>
 
 void Robot::RobotInit() {
-	auto_choice.AddDefault("Test Shoot", new AutonomousTestShoot());
+	auto_choice.AddObject("Test Shoot", new AutonomousTestShoot());
 	auto_choice.AddObject("Test Dropoff", new AutonomousTestDropoff());
 	auto_choice.AddObject("Test Straight", new AutonomousTestStraight());
 	auto_choice.AddObject("Test Turn", new AutonomousTestTurn());
 	auto_choice.AddObject("Test Gyro", new AutonomousTestGyro());
 	auto_choice.AddObject("Shoot Red", new AutonomousShootRed());
 	auto_choice.AddObject("Shoot Blue", new AutonomousShootBlue());
-	auto_choice.AddObject("Score Gear", new AutonomousScoreGear());
+	auto_choice.AddDefault("Score Gear", new AutonomousScoreGear());
 	auto_choice.AddObject("Bippity Boppipty Give Me The Zoppity (Red)", new AutonomousUltimateRed());
 
 	frc::SmartDashboard::PutData("Auto Modes", &auto_choice);
@@ -100,7 +100,7 @@ void Robot::AutonomousInit() {
 	}
 
 	else {
-		auto_command.reset(new AutonomousTestShoot());
+		auto_command.reset(new AutonomousScoreGear());
 	}
 
 	auto_command.reset(auto_choice.GetSelected());
